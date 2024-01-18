@@ -12,8 +12,8 @@ toc:
     content-type: deployment
     href: /docs/vmware-cross-region-dr
     path: vmware-cross-region-dr
-    description: Pattern description
-    label: Pattern name
+    description: VMware Disaster Recovery on IBM Cloud using Veeam
+    label: vmware-cross-region-dr
 
   entries:
   - navgroup:
