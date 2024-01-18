@@ -1,2 +1,2 @@
 # pattern templates
-Accelerator patterns template files
+VMware  Disaster recovery pattern on IBM Cloud using Veeam
