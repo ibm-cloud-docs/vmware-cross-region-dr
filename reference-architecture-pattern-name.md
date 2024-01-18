@@ -8,7 +8,7 @@ keywords: # Not typically populated
 
 subcollection: # Use the subcollection value from your toc.yaml file. e.g. pattern-sap-on-vpc
 
-subcollection: pattern-sap-on-vpc
+subcollection: vmware-cross-region-dr
 
 keywords:
 # The release that the reference architecture describes
@@ -23,7 +23,7 @@ version: 1.0
 # See https://test.cloud.ibm.com/docs/get-coding?topic=get-coding-deploy-button
 deployment-url:
 
-docs: https://cloud.ibm.com/docs/pattern-sap-on-powervs
+docs: https://cloud.ibm.com/docs/vmware-cross-region-dr 
 
 content-type: reference-architecture
 

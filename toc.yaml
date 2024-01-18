@@ -4,14 +4,14 @@
 ---
 toc:
   properties:
-    subcollection: <repo-name>
+    subcollection: <vmware-cross-region-dr>
     industry: industry-value
     use-case: use-case-value
     compliance: compliance-value
     audience: solution
     content-type: deployment
-    href: /docs/<repo-name>
-    path: <repo-name>
+    href: /docs/<vmware-cross-region-dr>
+    path: <vmware-cross-region-dr>
     description: Pattern description
     label: Pattern name
 
