@@ -26,18 +26,11 @@ docs: https://cloud.ibm.com/docs/vmware-cross-region-dr
 
 content-type: reference-architecture
 ---
+
 <!--
 The following line inserts all the attribute definitions. Don't delete.
 -->
 
-{{site.data.keyword.attribute-definition-list}}
-
-<!--
-Don't include "reference architecture" in the following title.
-Specify a title based on a use case. If the architecture has a module
-or tile in the IBM Cloud catalog, match the title to the catalog. See
-https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-guidance.
--->
 
 # VMware Disaster Recovery on IBM Cloud using Veeam.
 
@@ -181,3 +174,24 @@ The following represents a baseline set of requirements which we believe are app
 | {: caption="Table 2. Pattern components" caption-side="bottom"} <!-- each table MUST have a caption attribute> |                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                          |
 
 As mentioned earlier, the Architecture Framework is used to guide and determine the applicable aspects and domains for which architecture decisions need to be made. The following sections contain the considerations, and architecture decisions for the aspects and domains that are in play in this solution pattern.
+
+
+{{site.data.keyword.attribute-definition-list}}
+
+<!--
+Don't include "reference architecture" in the following title.
+Specify a title based on a use case. If the architecture has a module
+or tile in the IBM Cloud catalog, match the title to the catalog. See
+https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-guidance.
+-->
+
+
+
+{{site.data.keyword.attribute-definition-list}}
+
+<!--
+Don't include "reference architecture" in the following title.
+Specify a title based on a use case. If the architecture has a module
+or tile in the IBM Cloud catalog, match the title to the catalog. See
+https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-guidance.
+-->
