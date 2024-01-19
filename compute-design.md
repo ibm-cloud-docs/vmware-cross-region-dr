@@ -29,7 +29,7 @@ All these deployment options are “all-in-one” and contain all the minimum ne
 
 In this pattern we decided to use a bare metal server to benefit from an all-in-one backup and replication solution isolated from the environment hosting the backed-up VMware workloads and IBM Cloud and to maximize performance.
 
-**Deployment considerations for Production site**
+## **Deployment considerations for Production site**
 
 On the source (production) site in the first IBM Cloud region, all the necessary Veeam Backup and Recovery components are installed on the same bare metal server:
 
@@ -37,12 +37,14 @@ On the source (production) site in the first IBM Cloud region, all the necessary
 
 Veeam Components running on the all-in-one bare metal server deployment
 
-**Deployment considerations for DR site**
+## **Deployment considerations for DR site**
 
 On the DR site, in the second IBM Cloud region, the following additional components are required:
 
 - At least 1 Veeam backup proxy (only if standard Veeam replication, with an RPO in hours, will be used)
 - At least 1 Veeam CDP proxy (only if continuous data protection replication, with an RPO in seconds, will be used)
+
+## **Backup Proxies considerations**
 
 **Additional Veeam backup/CDP proxies**
 
