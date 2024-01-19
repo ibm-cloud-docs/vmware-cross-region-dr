@@ -7,12 +7,13 @@ subcollection: vmware-cross-region-dr
 
 keywords:
 ---
-
 {{site.data.keyword.attribute-definition-list}}
 
 # Compute design
 
 {: \#compute-design}
+
+## Veeam Deployment architecture decision tree
 
 ![A diagram of a server Description automatically generated](image/ac7bfdaab04b6bc4a81c130141485978.png)
 
@@ -20,15 +21,15 @@ Deployment decision tree
 
 On IBM Cloud classic, 3 deployment options are available for the Veeam solution:
 
--   IBM Cloud classic VSI
--   VM hosted on the IBM Cloud VMware deployment (enabling protection from vSphere High Availability but requiring extra networking configuration)
--   Bare Metal Server
+- IBM Cloud classic VSI
+- VM hosted on the IBM Cloud VMware deployment (enabling protection from vSphere High Availability but requiring extra networking configuration)
+- Bare Metal Server
 
 All these deployment options are “all-in-one” and contain all the minimum needed Veeam components for back up and replication between two IBM Cloud regions.
 
 In this pattern we decided to use a bare metal server to benefit from an all-in-one backup and replication solution isolated from the environment hosting the backed-up VMware workloads and IBM Cloud and to maximize performance.
 
-**Production site**
+**Deployment considerations for Production site**
 
 On the source (production) site in the first IBM Cloud region, all the necessary Veeam Backup and Recovery components are installed on the same bare metal server:
 
@@ -36,12 +37,12 @@ On the source (production) site in the first IBM Cloud region, all the necessary
 
 Veeam Components running on the all-in-one bare metal server deployment
 
-**DR site**
+**Deployment considerations for DR site**
 
 On the DR site, in the second IBM Cloud region, the following additional components are required:
 
--   At least 1 Veeam backup proxy (only if standard Veeam replication, with an RPO in hours, will be used)
--   At least 1 Veeam CDP proxy (only if continuous data protection replication, with an RPO in seconds, will be used)
+- At least 1 Veeam backup proxy (only if standard Veeam replication, with an RPO in hours, will be used)
+- At least 1 Veeam CDP proxy (only if continuous data protection replication, with an RPO in seconds, will be used)
 
 **Additional Veeam backup/CDP proxies**
 
@@ -51,9 +52,9 @@ Any existing Windows or Linux physical or virtual server can be converted into a
 
 In this pattern we decided to use IBM Cloud linux VSIs running in the DR environment as Veeam backup/CDP proxies. This allows us to limit the costs while keeping the networking as simple as possible (not requiring any portable IP address or GRE tunnel).
 
-See <https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120> and <https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120> for more information on adding backup/CDP proxies.
+See [https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120) and [https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120) for more information on adding backup/CDP proxies.
 
-Note that for CDP, an I/O filter needs to be installed on every VMware **consolidated** cluster where protected/restored VM is/will be running (see <https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120>)
+Note that for CDP, an I/O filter needs to be installed on every VMware **consolidated** cluster where protected/restored VM is/will be running (see [https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120))
 
 Note that Veeam recommends having at least 2 backup/CDP proxies on each site to provide some redundancy.
 

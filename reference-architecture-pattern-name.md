@@ -13,7 +13,7 @@ keywords:
 # The release that the reference architecture describes
 
 authors:
-- name: Doug Eppard
+- name: Bertrand-David and Dwarkanath
 
 version: 1.0
 
@@ -71,7 +71,7 @@ Figure 1 illustrates...overview text here
 ![A diagram of a computer network Description automatically
 generated](./image1.png)
 
-Figure 1 Pattern-name solution architecture`<!-- this is the diagram caption -->`
+Figure 1 Pattern-name solution architecture `<!-- this is the diagram caption -->`
 
 Figure 1 detailed description goes here
 
