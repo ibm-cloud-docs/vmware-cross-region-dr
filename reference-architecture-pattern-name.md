@@ -33,7 +33,7 @@ Include a short description, summary, or overview in a single paragraph that fol
 
 After the introduction, include a summary of the typical use case for the architecture. The use case might include the motivation for the architecture composition, business challenge, or target cloud environments.
 
-## Architecture diagram `<!-- this is an H2 -->`
+## Architecture diagram 
 
 {: #architecture-diagram}
 
@@ -61,7 +61,7 @@ Figure 2 Pattern-name solution architecture
 
 figure 2 detailed diagram description here
 
-## Design scope `<!-- H2 -->`
+## Design scope 
 
 {: #design-scope}
 
@@ -87,7 +87,7 @@ generated](./image3.png)
 
 Figure 3 design scope
 
-## Requirements `<!-- H2 -->`
+## Requirements 
 
 {: #requirements}
 
@@ -122,7 +122,7 @@ The following represents a baseline set of requirements which we believe are app
 |                                                                                                                   | Customer does not want to adopt[RISE](https://www.ibm.com/consulting/rise-with-sap?utm_content=SRCWW&p1=Search&p4=43700077624079785&p5=e&gclid=EAIaIQobChMIr9bRlt7LgQMVJdHCBB0cewwcEAAYASAAEgIVgfD_BwE&gclsrc=aw.ds) at this time but wants to consider Cloud deployment solution that would facilitate a future RISE transformation |
 | {: caption="Table 1. Pattern requirements" caption-side="bottom"}  <!-- each table MUST have a caption attribute> |                                                                                                                                                                                                                                                                                                                                   |
 
-## Components `<!-- H2 -->`
+## Components
 
 {: #components}
 
