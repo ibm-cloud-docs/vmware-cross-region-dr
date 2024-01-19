@@ -1,27 +1,23 @@
 ---
-
 copyright:
   years: 2023
 lastupdated: "2023-12-26"
 
-subcollection: pattern-sap-on-vpc
+subcollection: vmware-cross-region-dr
 
 keywords:
-
 ---
-
 {{site.data.keyword.attribute-definition-list}}
 
 # Architecture decisions for compute
-{: #compute-decisions}
-<!-- below is a placeholder for all compute domain decisions  Remove the domains that are not in scope.  If there are decisions
-that need to be added (e.g. platform dependent) add additional rows-->
 
-| Architecture decision| Requirement| Options |Decision| Rationale|
-|-|-|-|-|-|
-|Bare metal servers| text | text | text | text |
-|Virtual servers| text | text | text | text |
-|Virtualization| text | text | text | text |
-|Containers| text | text | text | text |
-|Serverless| text | text | text | text |
-{: caption="Table 1. Architecture decisions for compute" caption-side="bottom"}
+{: \#compute-decisions}
+
+The following are compute architecture decisions for the vmware-dr pattern.
+
+| **Architecture decision**                         | **Requirement**                                               | **Options**                                                   | **Decision**             | **Rationale**                                                                                                |
+| ------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| Veeam solution deployment type on the production site   | Provide an all-in-one automated Veeam deployment                    | Bare Metal Server IBM Cloud VSI VM hosted on the VMware environment | Bare Metal Server              | Provides a backup and replication solution independent from the source environment availability                    |
+| Veeam backup/CDP proxies deployment type on the DR site | Host the necessary Veeam proxies on the disaster recovery site      | Bare Metal Server IBM Cloud VSI VM hosted on the VMware environment | IBM Cloud VSI                  | Cost optimized and simplify networking requirements                                                                |
+| Veeam all-in-one solution deployment site               | Select the most appropriate deployment site to maximize performance | Production site DR site                                             | Production site                | Allows to maximize the backup performances (while allowing replication)                                            |
+| Initial number of Veeam proxies                         | Provide sufficient level of resiliency and performance              | 1 backup/CDP proxy per site 2 backup/CDP proxies per site           | 2 backup/CDP proxies per site? | Provide redundancy to avoid replication tasks to be blocked when one of the backup/CDP proxies becomes unavailable |
