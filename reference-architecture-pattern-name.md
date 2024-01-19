@@ -9,8 +9,6 @@ subcollection: # Use the subcollection value from your toc.yaml file. e.g. patte
 
 subcollection: vmware-cross-region-dr
 
-
-
 ---
 
 <!--
