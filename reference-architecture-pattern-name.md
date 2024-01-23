@@ -6,7 +6,6 @@ subcollection: vmware-cross-region-dr
 ---
 # VMware Disaster Recovery on IBM Cloud using Veeam.
 
-{: \#vmware-cross-region-dr} {: toc-content-type="reference-architecture"} {: toc-version="1.0"}
 
 Reference architecture using Veeam for a DR solution for VMware workloads at source and target locations.
 
