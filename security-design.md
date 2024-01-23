@@ -15,7 +15,6 @@ keywords:
 
 <!-- text for security design considerations goes here -->
 
-
 Securing Veeam Backup and Continuous Data Protection (CDP) on VMware within the IBM Cloud environment requires careful consideration of various aspects to ensure the confidentiality, integrity, and availability of data. Here are key security requirements and best practices:
 
 1. **Network Security:**
@@ -38,17 +37,10 @@ Securing Veeam Backup and Continuous Data Protection (CDP) on VMware within the 
 
    * **Regular Updates:** Keep Veeam software and underlying systems up-to-date with the latest security patches and updates to address potential vulnerabilities.
    * **Scanning and Testing:** Regularly perform vulnerability assessments and penetration testing on the Veeam infrastructure to identify and remediate security weaknesses.
-6. **Incident Response:**
-
-   * **Response Plan:** Develop an incident response plan that outlines procedures for detecting, reporting, and responding to security incidents related to Veeam CDP.
-   * **Monitoring:** Implement continuous monitoring to detect unusual activities or potential security breaches promptly.
-7. **Compliance:**
+6. **Compliance:**
 
    * **Regulatory Compliance:** Ensure that the Veeam CDP deployment within the IBM Cloud adheres to relevant industry regulations and compliance standards, such as GDPR, HIPAA, or any other applicable requirements.
-8. **Integration with IBM Cloud Security Services:**
-
-   * **Utilize Cloud Security Services:** Leverage IBM Cloud's native security services to enhance overall security, including features such as DDoS protection, identity and access management, and logging.
-9. **Data Residency and Privacy:**
+7. **Data Residency and Privacy:**
 
    * **Data Residency Policies:** Understand and comply with data residency requirements by configuring Veeam CDP to align with IBM Cloud's data residency policies.
    * **Privacy Considerations:** Address privacy concerns by implementing anonymization or pseudonymization of sensitive data within backups.
