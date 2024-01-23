@@ -31,23 +31,7 @@ The Veeam bare metal servers are natively provisioned to VLAN 1, and they need o
 
 Each Veeam bare metal server also needs to be VLAN trunked to VLAN 2. They need one IP address from the private portable subnet of the VLAN 2 for the all-in-one server from the NFS or vSAN subnet, which is configured through the automation on the tagged VLAN 2.
 
-**Requirements**
-
-The Veeam backup server must have network connectivity to:
-
-\- all the backup/CDP proxies, including the ones located on the target site
-
-\- all the ESXi hosts where VMs/replicas are/will be running
-
-\- the vCenter servers in the production and DR environments
-
-\- Optional – Internet connectivity
-
-\- Optional – Connectivity to IBM Cloud Object Storage
-
 ---
-
-
 
 Here are key networking requirements:
 
@@ -78,6 +62,19 @@ Here are key networking requirements:
     * **QoS Policies:** Implement Quality of Service policies to prioritize Veeam traffic, especially during peak backup and replication periods, to ensure that critical data transfer is not adversely affected by other network activities.
 13. **Redundancy and High Availability:**
     * **Redundant Network Paths:** Configure redundant network paths to provide high availability and fault tolerance, ensuring that a failure in one path does not disrupt data transfer operations.
+
+
+The Veeam backup server must have network connectivity to:
+
+\- all the backup/CDP proxies, including the ones located on the target site
+
+\- all the ESXi hosts where VMs/replicas are/will be running
+
+\- the vCenter servers in the production and DR environments
+
+\- Optional – Internet connectivity
+
+\- Optional – Connectivity to IBM Cloud Object Storage
 
 In this pattern, connectivity between the production and DR environments is achieved by leveraging the IBM Cloud backbone, with no extra component needed and no cost associated to the traffic.
 
