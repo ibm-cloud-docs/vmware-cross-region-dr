@@ -15,7 +15,7 @@ keywords:
 
 ## Veeam Deployment architecture decision tree
 
-Before you deploy Veeam 
+Before you deploy Veeam
 
 Here are some of the key considerations and decisions that are needed to deploy Veeam on VM or on a Baremetal n OBM cloud.
 
@@ -50,7 +50,7 @@ On the DR site, in the second IBM Cloud region, the following additional compone
 - At least 1 Veeam backup proxy (only if standard Veeam replication, with an RPO in hours, will be used)
 - At least 1 Veeam CDP proxy (only if continuous data protection replication, with an RPO in seconds, will be used)
 
-## **Backup Proxies considerations	**
+## Backup Proxies considerations
 
 **Additional Veeam backup/CDP proxies**
 
