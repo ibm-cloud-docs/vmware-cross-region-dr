@@ -15,9 +15,7 @@ keywords:
 
 ## Veeam Deployment architecture decision tree
 
-Before you deploy Veeam o
-
----
+Before you deploy Veeam 
 
 Here are some of the key considerations and decisions that are needed to deploy Veeam on VM or on a Baremetal n OBM cloud.
 
@@ -29,12 +27,11 @@ On IBM Cloud classic, 3 deployment options are available for the Veeam solution:
 
 All these deployment options are “all-in-one” and contain all the minimum needed Veeam components for back up and replication between two IBM Cloud regions.
 
-
 ![A diagram of a server Description automatically generated](image/ac7bfdaab04b6bc4a81c130141485978.png)
 
 Deployment decision tree
 
-The above decision tree lists options and approach for a Veeam deployment on IBM cloud. 
+The above decision tree lists options and approach for a Veeam deployment on IBM cloud.
 
 In this pattern we decided to use a bare metal server to benefit from an all-in-one backup and replication solution isolated from the environment hosting the backed-up VMware workloads and IBM Cloud and to maximize performance.
 
