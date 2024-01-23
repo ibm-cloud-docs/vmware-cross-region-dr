@@ -32,7 +32,7 @@ Veeam on IBM cloud is based on Veeam Backup and Replication 12 OS Add-on and Vee
 - The core management components in the recovery region (vCenter Server and the NSX-T™ Manager cluster) are running, so there is no infrastructure deployment wait time.
 - The recovery infrastructure is being monitored through the management toolset (ideally VMware Aria® Operations™), so that the recovery infrastructure resources are healthy, and ready to be used.
 
-## **CDP Proxy Reference architecture for a Disaster recovery solution on IBM cloud (Across different Cloud Region)**
+**CDP Proxy Reference architecture for a Disaster recovery solution on IBM cloud (Across different Cloud Region)**
 
 - operates as a data mover and transfers data between the source and target hosts.
 - Role can be assigned to any Windows-managed virtual or physical server added to your Veeam
