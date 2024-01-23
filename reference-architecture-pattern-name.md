@@ -21,7 +21,7 @@ Here is the Architecture overview
 
 Key Components of Veeam on IBM Cloud
 
-  1. **IBM Cloud Infrastructure:**
+1. **IBM Cloud Infrastructure:**
 
 * VMware-based virtualized environment hosted on IBM Cloud.
 * Multiple ESXi hosts forming a cluster for running virtual machines.
