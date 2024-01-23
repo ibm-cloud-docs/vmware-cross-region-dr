@@ -1,10 +1,9 @@
 ---
-
 copyright:
   years: 2023
 lastupdated: "2023-12-26"
 
-subcollection: pattern-sap-on-vpc
+subcollection: 
 
 keywords:
 
@@ -12,16 +11,16 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-<!-- exapmles of format are below -->
 # References
-{: #references}
 
-[IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment introduction](https://cloud.ibm.com/docs/sap?topic=sap-vpc-env-introduction)
+{: \#references}
 
-[IBM Cloud for SAP Get Started](https://cloud.ibm.com/docs/sap?topic=sap-get-started)
-
-[Veeam Plug-ins for Enterprise Applications](https://helpcenter.veeam.com/docs/backup/plugins/overview.html?ver=120)
-
-[Sizing process for SAP Systems](https://cloud.ibm.com/docs/sap?topic=sap-sizing&interface=ui)
-
-[FAQ -- SAP on IBM Cloud](https://cloud.ibm.com/docs/sap?topic=sap-faq-ibm-cloud-for-sap)
+-   [Veeam on IBM Cloud overview](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeamvm_overview)
+-   [Ordering Veeam](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam_ordering)
+-   [Ordering Veeam stand-alone licenses](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam_ordering_licenses)
+-   [Managing Veeam stand-alone licenses](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam_managing_licenses)
+-   [Ordering and configuring IBM Cloud Object Storage with Veeam](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-icos_ordering)
+-   [VMware Solutions FAQ](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-faq-vmwaresolutions)
+-   [Veeam Backup and Replication](https://www.ibm.com/cloud/architecture/architectures/virtualization_backup_veeam)
+-   [Veeam Backup and Replication FAQ](https://www.veeam.com/availability-suite-faq.html)
+-   [Veeam Technical Documentation](https://www.veeam.com/documentation-guides-datasheets.html)
