@@ -1,0 +1,23 @@
+---
+copyright:
+  years: 2023
+lastupdated: "2023-12-26"
+
+subcollection: vmware-cross-region-dr
+
+keywords:
+---
+{{site.data.keyword.attribute-definition-list}}
+
+# Architecture decisions for compute
+
+{: \#compute-decisions}
+
+The following are compute architecture decisions for the vmware-dr pattern.
+
+| **Architecture decision**                         | **Requirement**                                               | **Options**                                                   | **Decision**             | **Rationale**                                                                                                |
+| ------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| Veeam solution deployment type on the production site   | Provide an all-in-one automated Veeam deployment                    | Bare Metal Server IBM Cloud VSI VM hosted on the VMware environment | Bare Metal Server              | Provides a backup and replication solution independent from the source environment availability                    |
+| Veeam backup/CDP proxies deployment type on the DR site | Host the necessary Veeam proxies on the disaster recovery site      | Bare Metal Server IBM Cloud VSI VM hosted on the VMware environment | IBM Cloud VSI                  | Cost optimized and simplify networking requirements                                                                |
+| Veeam all-in-one solution deployment site               | Select the most appropriate deployment site to maximize performance | Production site DR site                                             | Production site                | Allows to maximize the backup performances (while allowing replication)                                            |
+| Initial number of Veeam proxies                         | Provide sufficient level of resiliency and performance              | 1 backup/CDP proxy per site 2 backup/CDP proxies per site           | 2 backup/CDP proxies per site? | Provide redundancy to avoid replication tasks to be blocked when one of the backup/CDP proxies becomes unavailable |
