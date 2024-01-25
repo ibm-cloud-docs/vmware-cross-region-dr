@@ -60,7 +60,7 @@ toc:
             navtitle: Security
           - topic: resiliency-architecture.md
             navtitle: Resiliency
-          - topic: replication-design.md
+          - topic: replication-architecture.md
             navtitle: Replication          
           - topic: service-management-architecture.md
             navtitle: Service Management 
