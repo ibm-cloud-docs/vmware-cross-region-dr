@@ -14,40 +14,34 @@ keywords:
 
 {: \#network-design}
 
-This section covers Network design requirements and considerations.
+This section covers Network design considerations.
 
-1.  **Firewall Configuration:**
-    1.  **Ports and Protocols:** Ensure that the necessary ports and protocols are open in the firewalls between Veeam components, VMware infrastructure, and any other relevant systems. Veeam provides documentation specifying the required ports for different components and functionalities.
-2.  **Network Segmentation:**
-    1.  **Isolation:** Segment the network to isolate Veeam components from other critical infrastructure. This can enhance security and prevent unauthorized access.
-3.  **Backup Repository Connectivity:**
-    1.  **Direct Access:** Ensure that Veeam backup repositories are directly accessible by Veeam components over the network. This is crucial for efficient data transfer and storage operations.
-4.  **Proxy Deployment:**
-    1.  **Strategic Proxy Placement:** Deploy Veeam proxies strategically within the network to optimize data transfer. Proxies can be placed closer to the data source to reduce the load on the central Veeam server.
-5.  **VMware vSphere Connectivity:**
-    1.  **vCenter and ESXi Host Connectivity:** Establish reliable connections to VMware vCenter and ESXi hosts to facilitate the discovery of VMs, configuration settings retrieval, and other interactions between Veeam and VMware.
-6.  **Secure Communication:**
-    1.  **TLS/SSL Encryption:** Enable TLS/SSL encryption for communication between Veeam components to ensure the confidentiality and integrity of data in transit.
-    2.  **Secure Communication with VMware:** Use secure communication protocols when interacting with VMware infrastructure, adhering to best practices for securing VMware environments.
-7.  **DNS Configuration:**
-    1.  **Name Resolution:** Ensure proper DNS configuration for Veeam components and VMware infrastructure to enable seamless name resolution. This is essential for the identification and communication between components.
-8.  **Time Synchronization:**
-    1.  **NTP (Network Time Protocol):** Synchronize the clocks across Veeam components, VMware hosts, and other relevant systems using NTP to ensure accurate timestamps for logs and data consistency.
-9.  **Redundancy and High Availability:**
-    1.  **Redundant Network Paths:** Configure redundant network paths to provide high availability and fault tolerance, ensuring that a failure in one path does not disrupt data transfer operations.
+| **Area**                               | **Description**                                                                                                                                                                                                                                                                                                                                  |
+|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Firewall Configuration:**            | **Ports and Protocols:** Ensure that the necessary ports and protocols are open in the firewalls between Veeam components, VMware infrastructure, and any other relevant systems. Veeam provides documentation specifying the required ports for different components and functionalities.                                                       |
+| **Network Segmentation:**              | **Isolation**: Segment the network to isolate Veeam components from other critical infrastructure. This can enhance security and prevent unauthorized access.                                                                                                                                                                                    |
+| **Backup Repository Connectivity:**    | **Direct Access:** Ensure that Veeam backup repositories are directly accessible by Veeam components over the network. This is crucial for efficient data transfer and storage operations.                                                                                                                                                       |
+| **Proxy Deployment:**                  | **Strategic Proxy Placement:** Deploy Veeam proxies strategically within the network to optimize data transfer. Proxies can be placed closer to the data source to reduce the load on the central Veeam server.                                                                                                                                  |
+| **VMware vSphere Connectivity:**       | **vCenter and ESXi Host Connectivity:** Establish reliable connections to VMware vCenter and ESXi hosts to facilitate the discovery of VMs, configuration settings retrieval, and other interactions between Veeam and VMware.                                                                                                                   |
+| **Secure Communication:**              | **TLS/SSL Encryption:** Enable TLS/SSL encryption for communication between Veeam components to ensure the confidentiality and integrity of data in transit. **Secure Communication with VMware:** Use secure communication protocols when interacting with VMware infrastructure, adhering to best practices for securing VMware environments.  |
+| **DNS Configuration:**                 | **Name Resolution:** Ensure proper DNS configuration for Veeam components and VMware infrastructure to enable seamless name resolution. This is essential for the identification and communication between components                                                                                                                            |
+| **Time Synchronization:**              | **NTP (Network Time Protocol):** Synchronize the clocks across Veeam components, VMware hosts, and other relevant systems using NTP to ensure accurate timestamps for logs and data consistency.                                                                                                                                                 |
+| **Redundancy and High Availability:**  | **Redundant Network Paths:** Configure redundant network paths to provide high availability and fault tolerance, ensuring that a failure in one path does not disrupt data transfer operations.                                                                                                                                                  |
 
 When deployed the Veeam bare metal server on the production site is connected to two IBM Cloud private VLANs, with no public connectivity by default.
 
 Each Veeam® bare metal server is deployed with dual private only 10 GbE NICs with standard NIC teaming.
 
+## VLAN Design
+
 The Veeam bare metal servers are deployed to have connectivity to the following infrastructure VLANs:
 
 Table 1. VLAN designations
 
-| VLAN   | Designation Traffic type                            |
-|--------|-----------------------------------------------------|
-| VLAN 1 | Private A ESXi management, management, Geneve (TEP) |
-| VLAN 2 | Private B vSAN, NFS, vMotion, and Edge Geneve (TEP) |
+| **VLAN** | **Designation Traffic type**                        |
+|----------|-----------------------------------------------------|
+| VLAN 1   | Private A ESXi management, management, Geneve (TEP) |
+| VLAN 2   | Private B vSAN, NFS, vMotion, and Edge Geneve (TEP) |
 
 The Veeam bare metal servers are natively provisioned to VLAN 1, and they need one IP address from the private primary subnet of VLAN 1 for the all-in-one server, which is deployed and configured during server provisioning of the non-tagged VLAN 1.
 
