@@ -58,7 +58,7 @@ Some factors to take into consideration to improve the RPO and RTO:
 - The core management components in the recovery region (vCenter Server and the NSX-T™ Manager cluster) are running, so there is no infrastructure deployment wait time.
 - The recovery infrastructure is being monitored and compliant through the management toolset (VMware Aria® Operations™), so that the recovery infrastructure resources are healthy, compliant, and ready to be used.
 
-# Replication design
+## Replication design
 
 Replication
 
