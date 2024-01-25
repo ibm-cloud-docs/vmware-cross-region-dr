@@ -3,7 +3,7 @@ copyright:
   years: 2023
 lastupdated: "2023-11-28"
 
-subcollection: <repo-name>
+subcollection: <vmware-cross-region-dr>
 
 keywords:
 ---
@@ -29,7 +29,7 @@ This pattern is intended to:
 The IBM …….consists of …(compelling reason to use IBM Cloud, i.e. specific IBM cloud offering)
 Use the following text for reference to Architecture Framework aspects and domains. -->
 
-Following the Architecture Framework, the `<Pattern Name>` covers design considerations and architecture decisions for the following aspects and domains:
+Following the Architecture Framework, the VMware Disaster Recovery solution using Veeam  covers design considerations and architecture decisions for the following aspects and domains:
 
 <!-- Note to author> <List the aspects and domains covered in this pattern; Here is an example:-->
 
