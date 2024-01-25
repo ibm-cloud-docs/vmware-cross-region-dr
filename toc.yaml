@@ -5,9 +5,9 @@
 toc:
   properties:
     subcollection: vmware-cross-region-dr
-    industry: industry-value
-    use-case: use-case-value
-    compliance: compliance-value
+    # industry: industry-value
+    use-case: Public cloud
+   # compliance: compliance-value
     audience: solution
     content-type: deployment
     href: /docs/vmware-cross-region-dr
@@ -42,9 +42,10 @@ toc:
             navtitle: Security
           - topic: resiliency-design.md
             navtitle: Resiliency
+          - topic: replication-design.md
+            navtitle: Replication
           - topic: service-management-design.md
-            navtitle: Service management
-          - other-design.md
+            navtitle: Service Management
       - topicgroup:
           label: Architecture decisions
           topics:
@@ -58,9 +59,10 @@ toc:
             navtitle: Security
           - topic: resiliency-architecture.md
             navtitle: Resiliency
+          - topic: replication-architecture.md
+            navtitle: Replication          
           - topic: service-management-architecture.md
-            navtitle: Service management
-          - other-architecture.md
+            navtitle: Service Management 
 
   - navgroup:
       id: deploy
