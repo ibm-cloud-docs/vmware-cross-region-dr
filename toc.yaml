@@ -44,7 +44,6 @@ toc:
             navtitle: Resiliency
           - topic: replication-design.md
             navtitle: Replication
-          
           - topic: service-management-design.md
             navtitle: Service Management
       - topicgroup:
