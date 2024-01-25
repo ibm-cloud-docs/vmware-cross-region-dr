@@ -19,7 +19,7 @@ Types of replication (standard vs CDP)
 
 Veeam on IBM cloud is based on Veeam Backup and Replication 12 OS Add-on and Veeam Availability Suite 12 Replication mode (virtual appliance replication mode, network replication mode)
 
-## • Resiliency Region
+## Resiliency Region
 
 - Ensure the location of all service components and their required regulatory compliance can be achieved. Example, with a single campus MZR or data center the placement of the KMIP for VMware and Hyper Protect Crypto Services is not local to the VMWare (VCS) instance.
 - Geographical distance - the risk that the same physical event impacts multizone regions is low.
