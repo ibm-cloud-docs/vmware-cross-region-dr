@@ -16,37 +16,21 @@ keywords:
 
 Securing Veeam Backup and Continuous Data Protection (CDP) on VMware within the IBM Cloud environment requires careful consideration of various aspects to ensure the confidentiality, integrity, and availability of data. Here are key security requirements and best practices:
 
-1.  **Network Security:**
-    1.  **Isolation:** Ensure proper network isolation for the Veeam infrastructure components, such as the backup server, repository, and CDP proxy, from unauthorized access.
-    2.  **Firewall Rules:** Implement strict firewall rules to control traffic between Veeam components and other systems within the IBM Cloud environment.
-2.  **Access Control:**
-    1.  **Role-Based Access Control (RBAC):** Implement RBAC to restrict access to Veeam components based on job responsibilities, ensuring that only authorized personnel can configure, manage, and monitor the CDP solution.
-    2.  **Authentication:** Enforce strong authentication mechanisms, such as multi-factor authentication (MFA), for accessing the Veeam management console and associated interfaces.
-3.  **Data Encryption:**
-    1.  **In-Transit Encryption:** Enable encryption for data in transit between Veeam components and VMware infrastructure to prevent interception and tampering. Use secure communication protocols like TLS.
-    2.  **At-Rest Encryption:** Implement encryption for data at rest on storage repositories to protect against unauthorized access to backup and CDP data.
-4.  **Backup Repository Security:**
-    1.  **Access Controls:** Restrict access to the backup repository to only authorized personnel and systems.
-    2.  **Audit Trails:** Enable audit logging to track access and modifications to the backup repository, providing a trail of actions for security monitoring.
-5.  **Vulnerability Management:**
-    1.  **Regular Updates:** Keep Veeam software and underlying systems up-to-date with the latest security patches and updates to address potential vulnerabilities.
-    2.  **Scanning and Testing:** Regularly perform vulnerability assessments and penetration testing on the Veeam infrastructure to identify and remediate security weaknesses.
-6.  **Compliance:**
-    1.  **Regulatory Compliance:** Ensure that the Veeam CDP deployment within the IBM Cloud adheres to relevant industry regulations and compliance standards, such as GDPR, HIPAA, or any other applicable requirements.
-7.  **Data Residency and Privacy:**
-    1.  **Data Residency Policies:** Understand and comply with data residency requirements by configuring Veeam CDP to align with IBM Cloud's data residency policies.
-    2.  **Privacy Considerations:** Address privacy concerns by implementing anonymization or pseudonymization of sensitive data within backups.
+## Security Design general considerations
+
+| Security Areas                   | Description                                                                                                                                                                                                                                                                                                                                                                                           |
+|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Network Security**             | **Isolation:** Ensure proper network isolation for the Veeam infrastructure components, such as the backup server, repository, and CDP proxy, from unauthorized access. **Firewall Rules:** Implement strict firewall rules to control traffic between Veeam components and other systems within the IBM Cloud environment.                                                                           |
+| **Access Control**               | **Role-Based Access Control (RBAC):** Implement RBAC to restrict access to Veeam components based on job responsibilities, ensuring that only authorized personnel can configure, manage, and monitor the CDP solution. **Authentication:** Enforce strong authentication mechanisms, such as multi-factor authentication (MFA), for accessing the Veeam management console and associated interfaces |
+| **Data Encryption**              | In-Transit Encryption: Enable encryption for data in transit between Veeam components and VMware infrastructure to prevent interception and tampering. Use secure communication protocols like TLS. At-Rest Encryption: Implement encryption for data at rest on storage repositories to protect against unauthorized access to backup and CDP data.                                                  |
+| **Backup Repository Security**   | **Access Controls:** Restrict access to the backup repository to only authorized personnel and systems. **Audit Trails:** Enable audit logging to track access and modifications to the backup repository, providing a trail of actions for security monitoring.                                                                                                                                      |
+| **Vulnerability Management**     | **Regular Updates:** Keep Veeam software and underlying systems up-to-date with the latest security patches and updates to address potential vulnerabilities. **Scanning and Testing:** Regularly perform vulnerability assessments and penetration testing on the Veeam infrastructure to identify and remediate security weaknesses.                                                                |
+| **Compliance:**                  | **Regulatory Compliance:** Ensure that the Veeam CDP deployment within the IBM Cloud adheres to relevant industry regulations and compliance standards, such as GDPR, HIPAA, or any other applicable requirements.                                                                                                                                                                                    |
+| **Data Residency and Privacy:**  | **Data Residency Policies:** Understand and comply with data residency requirements by configuring Veeam CDP to align with IBM Cloud's data residency policies. **Privacy Considerations:** Address privacy concerns by implementing anonymization or pseudonymization of sensitive data within backups                                                                                               |
 
 By addressing these security requirements, organizations can establish a robust and resilient Veeam CDP deployment on VMware within the IBM Cloud environment, safeguarding critical data and ensuring the integrity of their backup and recovery processes.
 
-**Requirements**
-
--   Provide encryption at rest for both backup and replication
--   Provide encryption or privacy for the replication between the IBM Cloud regions
-
-**Encryption at rest for backup/replicas**
-
-Several options are available for ensuring the workloads backups and replicas are encrypted.
+## Other Considerations
 
 **Native Veeam encryption**
 
