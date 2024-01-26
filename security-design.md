@@ -29,9 +29,7 @@ Securing Veeam Backup and Continuous Data Protection (CDP) on VMware within the 
 
 By addressing these security requirements, organizations can establish a robust and resilient Veeam CDP deployment on VMware within the IBM Cloud environment, safeguarding critical data and ensuring the integrity of their backup and recovery processes.
 
-## Other Considerations
-
-### **Native Veeam encryption**
+## **Native Veeam encryption**
 
 Veeam supports two types of encryption for backup operations:
 
@@ -40,11 +38,11 @@ Veeam supports two types of encryption for backup operations:
 
 The two types of encryption can be combined. Encryption is not retroactive, and if Veeam Backup Enterprise Backup Manager is not used, it will not be possible to restore data from encrypted backups without the password.
 
-### **vSphere encryption**
+## **vSphere encryption**
 
 Veeam supports backing up virtual machines encrypted with vSphere encryption, the only requirement for this is to have a Key Management Server already configured (which is a pre-requisite for vSphere encryption).
 
-### **KMS**
+## **Key Management Server(KMS)**
 
 It is possible (and strongly recommended) to add a KMS (Key Management Server) server to the Veeam solution. Note that a KMS is needed for encrypted VM replication, without a KMS configured, the encrypted VMs will still be replicated, but the replica will be unencrypted.
 
@@ -62,7 +60,7 @@ KMS server options on IBM Cloud:
 
 **To replicate/replace**
 
-### **Encryption in transit for replication**
+## **Encryption in transit for replication**
 
 Veeam supports encryption during replication using network traffic rules.
 
