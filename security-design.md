@@ -15,7 +15,7 @@ keywords:
 
 Securing Veeam Backup and Continuous Data Protection (CDP) on VMware within the IBM Cloud environment requires careful consideration of various aspects to ensure the confidentiality, integrity, and availability of data. Here are key security requirements and best practices:
 
-## Security Design general considerations
+## Security Design Considerations
 
 | Security Areas                        | Description                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
