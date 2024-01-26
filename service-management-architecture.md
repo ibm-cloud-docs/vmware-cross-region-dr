@@ -11,7 +11,7 @@ keywords:
 
 {: #service}
 
-The following sections summarize the architecture decisions for service management for the web app multi-zone resiliency pattern.
+This will be updated later
 
 ## Architecture decisions for monitoring
 
@@ -43,4 +43,3 @@ The following sections summarize the architecture decisions for service manageme
 | Operational alerts                                                               | Provide a mechanism to identify and send notifications about operational issues that are found across application and infrastructure. | IBM Cloud Monitoring +  IBM Cloud Logging + Event Notifications    | IBM Cloud Monitoring +  IBM Cloud Logging + Event Notifications    | IBM Cloud Monitoring and IBM Cloud Logging support the configuration of alerts to detect operational issues and send notifications to targeted channels. \n Event Notifications are used to route the alert events to service destinations to automate response actions. |
 | Audit alerts                                                                     | Provide a mechanism to identify and send notifications about issues that are found in audit logs.                                     | IBM Cloud Activity Tracker + IBM Monitoring +  Event Notifications | IBM Cloud Activity Tracker + IBM Monitoring +  Event Notifications | IBM Activity Tracker supports the configuration of alerts to detect audit issues and send notifications to targeted channels. \n Event Notifications are used to route the alert events to service destinations to automate response actions.                            |
 | {: caption="Table 4. Architecture decisions for alerting" caption-side="bottom"} |                                                                                                                                       |                                                                    |                                                                    |                                                                                                                                                                                                                                                                          |
-
