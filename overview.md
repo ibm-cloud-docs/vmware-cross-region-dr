@@ -16,11 +16,13 @@ keywords:
 <!-- Note to author>    THIS SHOULD BE ABOUT 10 – 15 LINES AND FOLLOW….
 The objective of this pattern is to provide a solution design for……. -->
 
-This pattern is intended to:
+This pattern covers
 
-* Accelerate and simplify solution design by providing a standard IBM Cloud deployment architecture reference following the IBM Architecture Framework.
-* Provide a prescriptive, end-2-end enterprise-class solution design, with diagrams, component architecture decisions along with rationale for cloud component selection to meet enterprise requirements.
-* Ensure requirements can be met from a performance, system availability and security perspective.
+*Veeam Disaster Recovery  for customer workloads on IBM Cloud VMware environment*
+
+•	Provide a prescriptive Disaster Recovery solution for VMWare Workloads on IBM Cloud using Veeam.
+
+•	Provide reference architectures for disaster recovery for VMware workloads running on IBM Cloud vCenter Server **(VCS)** deployments with primary and disaster recovery sites in IBM Cloud( **VCS will be replaced with VCF after  reviews**)
 
 <!-- Add any clarifications of what is in scope/out of scope, make sure you address these points in the doc) -->
 
