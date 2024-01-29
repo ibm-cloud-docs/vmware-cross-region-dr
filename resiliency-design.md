@@ -54,7 +54,7 @@ It is strongly recommended to setup an additional backup target to maintain the 
 
 It is also recommended to not only backup the protected virtual machines data to COS but also the configuration of the Veeam solution (see https://helpcenter.veeam.com/docs/backup/vsphere/export_vbr_config.html?ver=120).
 
-**Replication**
+## Replication
 
 To provide resiliency for the replication tasks, it is recommended to use at least 2 Veeam backup/CDP proxies in each site (4 Veeam backup/CDP proxies in total).
 
@@ -71,7 +71,7 @@ DR site:
 
 -   1x Veeam backup/CDP proxy running in a standard IBM Cloud linux VSIs
 
-**Recovery from a loss of the Veeam all-in-one bare metal**
+## Recovery from a loss of the Veeam all-in-one bare metal
 
 To be able to quickly restore the backup and replication functionalities in the event of the loss of the Veeam all-in-one bare metal, the recommendation is:
 
@@ -84,3 +84,34 @@ In the event of a loss of the Veeam bare metal located in the production site, i
 *@Neil Taylor:*
 
 **Do we need the “standby” Veeam all-in-one to be exactly identical (deployment type, storage…)?**
+
+## Recovery Scenarios
+
+Below are some high level steps typically needed to recover the protected VMware workloads from a disaster, these steps are only provided for general guidance as each customer’s workload is unique and scenario is unique.
+
+Scenario 1 - A limited number of VMs become unavailable/corrupted in the production site
+
+-   If a backup of the VM(s) covering the desired recovery point is available: in Veeam restore the affected from backup in the source site
+
+Scenario 2 - VMware production environment becomes unavailable, Veeam all-in-one Bare Metal remains operational
+
+-   In Veeam, perform failover of the production VMs (ideally using predefined failover plan)
+-   If the VMs are exposed via DNS, update the DNS records to point to the recovered VMs
+-   When the production VMware environment is restored, in Veeam perform a failback (if changes made to the recovered VMs during the failover need to be kept) or undo the failover (if the changes made to the recovered VMs do not need to be kept)
+
+Scenario 3 - VMware production environment becomes unavailable, Veeam all-in-one Bare Metal in production site becomes unavailable
+
+-   Bring up the standby all-in-one Veeam VSI/Bare metal in the disaster recovery site (or create one if not already existing)
+-   Power off the production site all-in-one Veeam Bare Metal if it still running to avoid any potential for a split brain situation
+-   Import the Veeam configuration from IBM Cloud Object Storage
+-   In Veeam, perform a failover of the production VMs (ideally using predefined failover plan)
+-   If the VMs are exposed via DNS, update the DNS records to point to the recovered VMs
+-   When the production VMware environment is restored, in Veeam perform a failback (if changes made to the recovered VMs during the failover need to be kept) or undo the failover (if the changes made to the recovered VMs do not need to be kept) and revert the DNS changes if any were made)
+
+See <https://helpcenter.veeam.com/docs/backup/vsphere/failover_failback.html?ver=120> for more information regarding failover operations with Veeam and a detailed decision tree.
+
+Additional recovery considerations
+
+-   Ensure that the needed firewall ports are open between the recovered VMs (e.g.: NSX-T distributed firewall rules) and their eventual external dependencies
+-   If needed update the DNS records to point to the recovered VMs
+-   If the VMware workloads are accessed from on premises, ensure that the appropriate routes to the disaster recovery site are present on the on premises customer router

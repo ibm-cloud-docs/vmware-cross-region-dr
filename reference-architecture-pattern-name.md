@@ -39,9 +39,9 @@ Key Components of Veeam on IBM Cloud
     1.  Deployed as a virtual appliance.
     2.  Ensures real-time replication of VMs for near-zero RPO (Recovery Point Objective).
 
-![A screenshot of a computer diagram Description automatically generated](image/41a6308e99bcbe0425b6f93666405785.png)
+![](image/417fd3cc28829d56969ad08955b08753.png)
 
-Figure 1. Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) architecture
+Figure 1 Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) architecture
 
 In this pattern, we are assuming that two IBM Cloud vCenter server instances have been provisioned in two different IBM Cloud regions. One of these instances will be used for production workloads, the other one will be mostly used for disaster recovery (but potentially also for development and test workloads that can be “sacrificed” when a disaster recovery is triggered as described in the “DR site compute sizing” section below)
 
@@ -57,9 +57,11 @@ Although this pattern focuses on using Veeam for disaster recovery, we will quic
 
 **Production site**
 
-On the source (production) site in the first IBM Cloud region, all the necessary Veeam Backup and Recovery components are installed on the same bare metal server:
+On the source (production) site in the first IBM Cloud region, all the necessary Veeam Backup and Recovery components are installed on the same bare metal server
 
 ![A screenshot of a computer Description automatically generated](image/f0e10e1a1790f942e80d6bea9c8d7cf9.png)
+
+Figure 2 Veeam Components running on the all-in-one bare metal server deployment
 
 Veeam Components running on the all-in-one bare metal server deployment
 
@@ -106,14 +108,14 @@ Table 1. Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Clas
 
 ## Components
 
-| **Aspect**     | **Component**                 | **How the component is used**                                                                                                                            |
-|----------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Data           | PostgreSQL                    | Embedded database used as the Veeam Backup and Replication configuration database                                                                        |
-| Compute        | Bare Metal on IBM Cloud       | All in One backup and replication solution (backup repository, backup/CDP proxy, backup server, console) physically isolated from the VMware environment |
-|                | IBM Cloud classic VSI         | Veeam backup/CDP proxies on the disaster recovery site                                                                                                   |
-| Storage        | Direct Attached Storage       | Storage repository for backup                                                                                                                            |
-|                | Cloud Object Storage          | Optional – Can be used as second tier backup storage or as a Veeam scale-out backup repository                                                           |
-| Networking     | IBM Cloud backbone            | Replication Traffic between regions                                                                                                                      |
-| **Resiliency** | Veeam Backup and Replication  | DR solution for VMware workloads at source and target locations                                                                                          |
+| **Aspect**     | **Component**                | **How the component is used**                                                                                                                            |
+|----------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Data           | PostgreSQL                   | Embedded database used as the Veeam Backup and Replication configuration database                                                                        |
+| Compute        | Bare Metal on IBM Cloud      | All in One backup and replication solution (backup repository, backup/CDP proxy, backup server, console) physically isolated from the VMware environment |
+|                | IBM Cloud classic VSI        | Veeam backup/CDP proxies on the disaster recovery site                                                                                                   |
+| Storage        | Direct Attached Storage      | Storage repository for backup                                                                                                                            |
+|                | Cloud Object Storage         | Optional – Can be used as second tier backup storage or as a Veeam scale-out backup repository                                                           |
+| Networking     | IBM Cloud backbone           | Replication Traffic between regions                                                                                                                      |
+| **Resiliency** | Veeam Backup and Replication | DR solution for VMware workloads at source and target locations                                                                                          |
 
 Table 2. Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) components

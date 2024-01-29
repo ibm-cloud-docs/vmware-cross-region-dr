@@ -35,6 +35,8 @@ All these deployment options are “all-in-one” and contain all the minimum ne
 
 ![A diagram of a server Description automatically generated](image/ac7bfdaab04b6bc4a81c130141485978.png)
 
+Figure 1 Veeam deployment options decision tree
+
 The above decision tree lists options and approach for a Veeam deployment on IBM cloud.
 
 In this pattern we decided to use a bare metal server to benefit from an all-in-one backup and replication solution isolated from the environment hosting the backed-up VMware workloads and IBM Cloud and to maximize performance.
