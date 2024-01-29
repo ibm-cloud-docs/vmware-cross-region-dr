@@ -11,7 +11,7 @@ Reference architecture using Veeam for a DR solution for VMware workloads at sou
 - Supported by delivery and orderable via Cloud Catalog with near real-time RPO, RTO.
 - Protected workloads in DR zone must support Data Encryption. GPDR and other regulated markets requires PI/SPI data to be protected according to the laws.
 
-## Architecture Diagram
+## Veeam Architecture overview
 
 {: \#architecture-diagram}
 
@@ -21,99 +21,108 @@ Key Components of Veeam on IBM Cloud
 
 1. **IBM Cloud Infrastructure:**
 
-* VMware-based virtualized environment hosted on IBM Cloud.
-* Multiple ESXi hosts forming a cluster for running virtual machines.
+- VMware-based virtualized environment hosted on IBM Cloud.
+- Multiple ESXi hosts forming a cluster for running virtual machines.
 
-2. **Veeam Backup & Replication Server:**
-   * Deployed within the VMware environment as a virtual machine.
-   * Responsible for managing backup and replication jobs.
-3. **Veeam Backup Repository:**
-   * A dedicated storage location for storing backup files.
-   * Can be implemented as an IBM Cloud Object Storage or a high-performance block storage solution.
-4. **Veeam Backup Proxy:**
-   * Installed on a separate virtual machine.
-   * Facilitates data transfer between VMware infrastructure and the Veeam Backup & Replication server.
-5. **Veeam Backup Console:**
-   * Web-based console for configuring and monitoring backup jobs.
-   * Accessible from administrators' workstations.
-6. **Continuous Data Protection (CDP) Server:**
-   * Deployed as a virtual appliance.
-   * Ensures real-time replication of VMs for near-zero RPO (Recovery Point Objective).
+1. **Veeam Backup & Replication Server:**
+   1. Deployed within the VMware environment as a virtual machine.
+   2. Responsible for managing backup and replication jobs.
+2. **Veeam Backup Repository:**
+   1. A dedicated storage location for storing backup files.
+   2. Can be implemented as an IBM Cloud Object Storage or a high-performance block storage solution.
+3. **Veeam Backup Proxy:**
+   1. Installed on a separate virtual machine.
+   2. Facilitates data transfer between VMware infrastructure and the Veeam Backup & Replication server.
+4. **Veeam Backup Console:**
+   1. Web-based console for configuring and monitoring backup jobs.
+   2. Accessible from administrators' workstations.
+5. **Continuous Data Protection (CDP) Server:**
+   1. Deployed as a virtual appliance.
+   2. Ensures real-time replication of VMs for near-zero RPO (Recovery Point Objective).
 
-![A screenshot of a computer diagram Description automatically generated](image/41a6308e99bcbe0425b6f93666405785.png)
+![](image/417fd3cc28829d56969ad08955b08753.png)
 
-Figure 1. Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) architecture
+Figure 1 Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) architecture
 
-Short overview of architecture here
+In this pattern, we are assuming that two IBM Cloud vCenter server instances have been provisioned in two different IBM Cloud regions. One of these instances will be used for production workloads, the other one will be mostly used for disaster recovery (but potentially also for development and test workloads that can be “sacrificed” when a disaster recovery is triggered as described in the “DR site compute sizing” section below)
 
-![Backup Infrastructure for Replication](image/a8ebce1fe013d185fed25ff52394ffdd.png)
-
-To adapt to IBM Cloud/recreate (remove the wan accelerators) – “standard” replication architecture.
-
-![How Replication Works](image/43a4ce9bda14c2ec5f8f496fab2754a1.png)
-
-To adapt to IBM Cloud/recreate – “standard” replication architecture
-
-![Backup Infrastructure for CDP](image/581b404316a0c8da7f850aee4ffed86f.png)
-
-To adapt/recreate – CDP architecture.
+Connectivity from on premises to any of the IBM Cloud environments is considered as out of scope for this pattern.
 
 The Veeam solution available from IBM Cloud VMware Solutions catalog is based on Veeam Backup and Replication 12 and Veeam Availability Suite 12.
 
-It enables the backup of VMware workloads as well as their replication between different ESXi hosts/clusters/environments.
+The solution enables the backup of VMware workloads as well as their replication between different ESXi hosts/clusters/environments.
 
-List of things needed components on primary/secondary
+Although this pattern focuses on using Veeam for disaster recovery, we will quickly cover some backup aspects when it makes sense as we believe this is the most common use case for Veeam.
 
-## Design scope
+## Veeam solution components
 
-{: \#design-scope}
+**Production site**
 
-Following the [Architecture Framework](https://test.cloud.ibm.com/docs-draft/architecture-framework?topic=architecture-framework-taxonomy), pattern-name covers design considerations and architecture decisions for the following aspects and domains:
+On the source (production) site in the first IBM Cloud region, all the necessary Veeam Backup and Recovery components are installed on the same bare metal server
 
-- **Compute:** Bare Metal and Virtual infrastructure
-- **Storage:** Primary, Backup, Archive and Migration
-- **Networking:** Enterprise Connectivity, Edge Gateways, Segmentation and Isolation, Cloud Native Connectivity and Load Balancing
-- **Security:** Data, Identity and Access Management, Infrastructure and Endpoint, Threat Detection and Response
-- **Resiliency:** Backup and Restore, Disaster Recovery, High Availability
-- **Service Management:** Monitoring, Logging, Alerting, Management/Orchestration
+![A screenshot of a computer Description automatically generated](image/f0e10e1a1790f942e80d6bea9c8d7cf9.png)
 
-The Architecture Framework, described in [Introduction to the Architecture Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro), provides a consistent approach to design cloud solutions by addressing requirements across a pre-defined set of aspects and domains, which are technology-agnostic architectural areas that need to be considered for any enterprise solution. It can be used as a guide to make the necessary design and component choices to ensure you have considered applicable requirements for each aspect and domain. After you have identified the applicable requirements and domains that are in scope, you can evaluate and select the best fit for purpose components for your enterprise cloud solution.
+Figure 2 Veeam Components running on the all-in-one bare metal server deployment
 
-The Figure 3 shows the domains that are covered in this solution.
+Veeam Components running on the all-in-one bare metal server deployment
 
-![A diagram of a computer network Description automatically generated](./image3.png)
+The bare metal server is provisioned with a Windows Server 2019 operating system, the Veeam components are installed as applications on top of it.
 
-Figure 3 design scope
+More details on the components can be found here: [https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam-bms-archi-components](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam-bms-archi-components)
+
+Based on the environment size and the customer’s requirements, additional backup/CDP proxies can be added.
+
+**Additional Veeam backup/CDP proxies**
+
+Any existing Windows or Linux physical or virtual server can be converted into a backup or CDP proxy. This is achieved by assigning the proper role to these virtual or physical servers from the Veeam Backup and Replication console.
+
+In this pattern we decided to use IBM Cloud linux VSIs running in the DR environment as Veeam backup/CDP proxies. This allows us to limit the costs while keeping the networking as simple as possible (not requiring any portable IP address or GRE tunnel).
+
+See [https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120) and [https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120) for more information on adding backup/CDP proxies.
+
+Note that for CDP, an I/O filter needs to be installed on every VMware **consolidated** cluster where protected/restored VM is/will be running (see [https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120))
+
+Note that Veeam recommends having at least 2 backup/CDP proxies on each site to provide some level of redundancy.
+
+Replication performance will increase when additional proxies are added as the replication jobs then get distributed across the proxies.
+
+This pattern only shows the minimum components needed for a functional replication between the 2 regions, the exact number and types of Veeam proxies needed depend on each customer’s environment and requirements.
+
+**DR site**
+
+On the DR site, in the second IBM Cloud region, the following additional components are required:
+
+- At least 1 Veeam backup proxy (only if standard Veeam replication, with an RPO in hours, will be used)
+- At least 1 Veeam CDP proxy (only if continuous data protection replication, with an RPO in seconds, will be used)
+
+**Application-aware backups**
+
+**For VMs running specific applications (Microsoft Active Directory, Microsoft Exchange, Microsoft SharePoint, Microsoft SQL Server, **Ora**c**le** Database or PostgreSQL) Veeam can create transactionally consistent backups and replicas. In order to achieve this a Veeam agent needs to be installed in the VM (the installation is done either by **a  “**guest interaction proxy” for windows VMs or the backup server for other types of VMs).**
+
+**S**ee[https://helpcenter.veeam.com/docs/backup/vsphere/guest_interaction_proxy.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/guest_interaction_proxy.html?ver=120) a**nd **[https://helpcenter.veeam.com/docs/backup/vsphere/guest_processing.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/guest_processing.html?ver=120) for more information**.**
 
 ## Requirements
 
-{: \#requirements}
+| **Aspect** | **Requirement**                                                                                                                                             |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Compute          | Disaster Recovery for VMWare Workloads                                                                                                                            |
+| Storage          | Storage to support Veeam component and to backup the workloads                                                                                                    |
+| Security         | Provide data encryption at rest and in transit                                                                                                                    |
+| Resiliency       | Replicate VMware workloads from production site to an alternate site in a different region for failover of workloads in the event of failure in the primary site. |
+|                  | Failover that meets the RTO/RPO application requirements                                                                                                          |
 
-The following represents a baseline set of requirements which we believe are applicable to most clients and critical to successful SAP deployment.
+Table 1. Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) requirements
 
-| Aspect                                                                                                            | Requirement                                                                                                                                                                                                                                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Network                                                                                                           | Enterprise connectivity to customer data center(s) to provide access to applications from on-prem                                                                                                                                                                                                                                 |
-|                                                                                                                   | Map and convert existing customer SAP Network functionality into IBM Cloud and VPC networking services                                                                                                                                                                                                                            |
-|                                                                                                                   | Migrate/Redeploy customer IP addressing scheme within the IBM Cloud environment                                                                                                                                                                                                                                                   |
-|                                                                                                                   | Provide network isolation with the ability to segregate applications based on attributes such as data classification, public vs internal apps and function                                                                                                                                                                        |
-| Security                                                                                                          | Provide data encryption in transit and at rest                                                                                                                                                                                                                                                                                    |
-|                                                                                                                   | Migrate customer IDS/IAM Services to target IBM Cloud environment                                                                                                                                                                                                                                                                 |
-|                                                                                                                   | Retain the same firewall rulesets across existing DCs                                                                                                                                                                                                                                                                             |
-|                                                                                                                   | Firewalls must be restrictively configured to provide advanced security features and prevent all traffic, both inbound and outbound, except that which is specifically required, documented, and approved, and include IPS/IDS services                                                                                           |
-| Resiliency                                                                                                        | Multi-site capability to support a disaster recovery strategy and solution leveraging IBM Cloud infrastructure DR capabilities                                                                                                                                                                                                    |
-|                                                                                                                   | Provide backups for data retention                                                                                                                                                                                                                                                                                                |
-|                                                                                                                   | RTO/RPO = 4 hours/15 minutes; Rollback to original environments should occur no later than specified RTOs                                                                                                                                                                                                                         |
-|                                                                                                                   | 99.95 Availability                                                                                                                                                                                                                                                                                                                |
-|                                                                                                                   | Backups                                                                                                                                                                                                                                                                                                                           |
-|                                                                                                                   | - Prod: Daily Full, logs per SAP product standard, 30 days retention time\\n - Non-Prod: Weekly full, logs per SAP product standard, 14 days retention time                                                                                                                                                                       |
-| Service management                                                                                                | Provide Health and System Monitoring with ability to monitor and correlate performance metrics and events and provide alerting across applications and infrastructure                                                                                                                                                             |
-|                                                                                                                   | Ability to diagnose issues and exceptions and identify error sources                                                                                                                                                                                                                                                              |
-|                                                                                                                   | Automate management processes to keep applications and infrastructure secure, up to date, and available                                                                                                                                                                                                                           |
-| Other                                                                                                             | Migrate SAP workloads from existing data center to IBM Cloud VPC                                                                                                                                                                                                                                                                  |
-|                                                                                                                   | Customer's SAP systems and applications run on NetWeaver (application) & HANA (DB), AnyDB or S/4 HANA                                                                                                                                                                                                                             |
-|                                                                                                                   | Provide an Image Replication migration solution that will minimize disruption during cut-over                                                                                                                                                                                                                                     |
-|                                                                                                                   | Cloud infrastructure for the proposed IAAS solution must be SAP Certified                                                                                                                                                                                                                                                         |
-|                                                                                                                   | IBM Cloud IaaS will be deployed to support SAP and surrounding non-SAP workloads                                                                                                                                                                                                                                                  |
-|                                                                                                                   | Customer does not want to adopt[RISE](https://www.ibm.com/consulting/rise-with-sap?utm_content=SRCWW&p1=Search&p4=43700077624079785&p5=e&gclid=EAIaIQobChMIr9bRlt7LgQMVJdHCBB0cewwcEAAYASAAEgIVgfD_BwE&gclsrc=aw.ds) at this time but wants to consider Cloud deployment solution that would facilitate a future RISE transformation |
-| {: caption="Table 1. Pattern requirements" caption-side="bottom"}\<!-- each table MUST have a caption attribute\> |                                                                                                                                                                                                                                                                                                                                   |
+## Components
+
+| **Aspect**     | **Component**          | **How the component is used**                                                                                                                      |
+| -------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Data                 | PostgreSQL                   | Embedded database used as the Veeam Backup and Replication configuration database                                                                        |
+| Compute              | Bare Metal on IBM Cloud      | All in One backup and replication solution (backup repository, backup/CDP proxy, backup server, console) physically isolated from the VMware environment |
+|                      | IBM Cloud classic VSI        | Veeam backup/CDP proxies on the disaster recovery site                                                                                                   |
+| Storage              | Direct Attached Storage      | Storage repository for backup                                                                                                                            |
+|                      | Cloud Object Storage         | Optional – Can be used as second tier backup storage or as a Veeam scale-out backup repository                                                          |
+| Networking           | IBM Cloud backbone           | Replication Traffic between regions                                                                                                                      |
+| **Resiliency** | Veeam Backup and Replication | DR solution for VMware workloads at source and target locations                                                                                          |
+
+Table 2. Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) components
