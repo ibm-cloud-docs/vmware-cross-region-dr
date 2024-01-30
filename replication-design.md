@@ -22,7 +22,7 @@ The Veeam solution supports two types of replications, Veeam “standard” repl
 
 Standard Veeam replication is based on vSphere snapshots. During the first replication cycle a full replica of the data of the protected VM is created on the DR site. The following replication cycles are incremental, only changed blocks are copied (Veeam leverages VMware vSphere Changed Block Tracking (CBT), introduced in vSphere 7)
 
-![](image/c75b4df0d69270e1323639aa58056e8c.png)
+![](image/Veeam-Replication-Architecture.png)
 
 Figure 1 Veeam standard replication architecture
 
@@ -42,7 +42,7 @@ The I/O operations data is stored in the target datastore and associated to shor
 
 More information on CDP are available here: <https://helpcenter.veeam.com/docs/backup/vsphere/cdp_replication.html?ver=120>
 
-![](image/c5279cf37d224112d7ceeed7e2ff2de4.png)
+![](image/Veeam-CDP.png)
 
 Figure 2 Veeam CDP replication architecture
 

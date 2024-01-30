@@ -40,7 +40,7 @@ Key Components of Veeam on IBM Cloud
    1. Deployed as a virtual appliance.
    2. Ensures real-time replication of VMs for near-zero RPO (Recovery Point Objective).
 
-![](image/417fd3cc28829d56969ad08955b08753.png)
+![](image/VeeamArchitectureDrawingVCS_Veeam_cross_region.drawio.png)
 
 Figure 1 Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) architecture
 
@@ -60,7 +60,7 @@ Although this pattern focuses on using Veeam for disaster recovery, we will quic
 
 On the source (production) site in the first IBM Cloud region, all the necessary Veeam Backup and Recovery components are installed on the same bare metal server
 
-![A screenshot of a computer Description automatically generated](image/f0e10e1a1790f942e80d6bea9c8d7cf9.png)
+![A screenshot of a computer Description automatically generated](image/Veeamcomponents.drawio.png)
 
 Figure 2 Veeam Components running on the all-in-one bare metal server deployment
 
@@ -99,7 +99,11 @@ On the DR site, in the second IBM Cloud region, the following additional compone
 
 **For VMs running specific applications (Microsoft Active Directory, Microsoft Exchange, Microsoft SharePoint, Microsoft SQL Server, **Ora**c**le** Database or PostgreSQL) Veeam can create transactionally consistent backups and replicas. In order to achieve this a Veeam agent needs to be installed in the VM (the installation is done either by **a  “**guest interaction proxy” for windows VMs or the backup server for other types of VMs).**
 
-**S**ee[https://helpcenter.veeam.com/docs/backup/vsphere/guest_interaction_proxy.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/guest_interaction_proxy.html?ver=120) a**nd **[https://helpcenter.veeam.com/docs/backup/vsphere/guest_processing.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/guest_processing.html?ver=120) for more information**.**
+**S**ee[https://helpcenter.veeam.com/docs/backup/vsphere/guest_interaction_proxy.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/guest_interaction_proxy.html?ver=120) 
+
+a**nd** 
+
+****[https://helpcenter.veeam.com/docs/backup/vsphere/guest_processing.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/guest_processing.html?ver=120) for more information**.**
 
 ## Requirements
 

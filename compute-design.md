@@ -7,7 +7,6 @@ subcollection: vmware-cross-region-dr
 
 keywords:
 ---
-
 {{site.data.keyword.attribute-definition-list}}
 
 # Compute design
@@ -16,8 +15,8 @@ keywords:
 
 ## Requirement
 
--   " All-in-one" deployment
--   Isolation between environment running the workloads to protect and the backup/disaster recovery solution
+- " All-in-one" deployment
+- Isolation between environment running the workloads to protect and the backup/disaster recovery solution
 
 ## Veeam Deployment architecture decision tree
 
@@ -27,13 +26,13 @@ Here are some of the key considerations and decisions that are needed to deploy 
 
 On IBM Cloud classic, 3 deployment options are available for the Veeam solution:
 
--   IBM Cloud classic VSI
--   VM hosted on the IBM Cloud VMware deployment (enabling protection from vSphere High Availability but requiring extra networking configuration)
--   Bare Metal Server
+- IBM Cloud classic VSI
+- VM hosted on the IBM Cloud VMware deployment (enabling protection from vSphere High Availability but requiring extra networking configuration)
+- Bare Metal Server
 
 All these deployment options are “all-in-one” and contain all the minimum needed Veeam components for back up and replication between two IBM Cloud regions.
 
-![A diagram of a server Description automatically generated](image/ac7bfdaab04b6bc4a81c130141485978.png)
+![A diagram of a server Description automatically generated](image/decision_tree-veeam_deployment.drawio.png)
 
 Figure 1 Veeam deployment options decision tree
 
@@ -43,7 +42,7 @@ In this pattern we decided to use a bare metal server to benefit from an all-in-
 
 Add note regarding agent for specific applications use case
 
-Veeam 12.1 Backup Agent Supported: <https://helpcenter.veeam.com/docs/backup/agents/supported_veeam_agents.html?ver=120>
+Veeam 12.1 Backup Agent Supported: [https://helpcenter.veeam.com/docs/backup/agents/supported_veeam_agents.html?ver=120](https://helpcenter.veeam.com/docs/backup/agents/supported_veeam_agents.html?ver=120)
 
 ## Veeam all in one
 
@@ -58,7 +57,3 @@ As a result, in order to isolate the backup solution from the environment hostin
 The DR environment needs to always have enough bare metals ESXi provisioned to be able to bring up the replicas of the protected workloads when a disaster renders the production VMware environment unavailable.
 
 To optimize the cost of having bare metal hosts constantly provisioned on the DR site with no actual workload, a possibility is to run “sacrificial” development or test workloads, for which no DR is needed and that could be powered off to free capacity in the event of a DR occurrence, on the DR site. Offloading this type of workloads to the DR site also reduces the number/size of ESXi hosts needed on the production site.
-
-## Veeam Agent deployment
-
-Let us explain about Veeam Agent deployment for Key applications such as SAP or others.

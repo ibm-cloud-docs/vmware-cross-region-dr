@@ -54,7 +54,7 @@ Veeam supports backing up virtual machines encrypted with vSphere encryption, th
 
 ## Key Management Server(KMS)
 
-![A diagram of a computer Description automatically generated](image/82e8201438fef9adbda9143fca3fc761.png)
+![A diagram of a computer Description automatically generated](image/decision_tree-KMS.png)
 
 Figure 1 KMS options decision tree
 
@@ -74,7 +74,7 @@ Note that to integrate IBM Cloud Key Protect or Hyper Crypto Services KMS with a
 
 IBM Security Guardium Key Lifecycle Manager comes with its own KMIP.
 
-![](image/bdb9b133a3277e47090a6bb0113f57cb.png)
+![KMS integration with Veeam](image/KMS-Integration-Veeam.png)
 
 Figure 2 Veeam KMS integration
 
