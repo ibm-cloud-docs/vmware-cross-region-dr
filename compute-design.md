@@ -26,7 +26,7 @@ The requirements for the compute aspect for the Veeam for disaster recovery for 
 - **Veeam's "All-in-one" deployment**
 - **Isolation between environment running the workloads to protect and the backup/disaster recovery solution**
 
-## Veeam architecture components
+## Veeam Architecture Components
 
 The requirements for the Veeam components are listed below:
 
@@ -45,20 +45,20 @@ All the deployments, deploy the Veeam components onto a Microsoft Windows operat
 
 Additionally, an optional Linux hardened repository, using a bare metal server with local storage, can be deployed along with the bare metal server, VSI or virtual machine described above.
 
-The bare metal server option is a good choice for the following reasons:
+**The bare metal server option is a good choice for the following reasons:**
 
 - Managed service providers who don't want the dependency of hosting their service on a customer-managed cluster.
 - 10Gb network interfaces on the same network as the ESXi hosts enabling high-performance efficient data transfer using the network transport mode.
 - "All-in-one" deployments for VMware clusters using IBM Cloud storage backed datastores. As it is good practice for backup copies of data to be located on different storage to the primary copy, having backups on local storage and the primary copy on IBM Cloud storage adheres to this best practice.
 - Where data sovereignty requirements dictate that shared storage, such as IBM Cloud storage services, cannot be used.
 
-The virtual machine is a good choice for the following reasons:
+**The virtual machine is a good choice for the following reasons:**
 
 - Leveraging vSphere HA for resiliency of the hosted Veeam components from hardware failure.
 - While this option uses iSCSI storage for the backup repository, a Linux hardened repository can be ordered and used to hold backups of the primary copy on different storage media. Alternatively, IBM Cloud Object Storage can be used to provide a different storage media.
 - "All-in-one" deployments where the VMware Backup Proxy can use the Virtual Appliance (hot-add) transport mode.
 
-The virtual server instance is a good choice for the following reasons:
+**The virtual server instance is a good choice for the following reasons:**
 
 - The Windows operating system license is included in the charges for the VSI.
 - 1Gb network interface on the same network as the ESXi hosts enabling efficient data transfer using the network transport mode.
@@ -71,7 +71,6 @@ Figure 1 Veeam deployment options decision tree
 
 ***Check with Neil***
 
-
 For this disaster recovery pattern, there was no requirement for physical isolation of the backup, therefore, the virtual machine option was selected. The recovery site was selected for the deployment so that the Veeam Backup & Replication server was available instantly for disaster recovery invocation
 
 If this pattern was also to include backup and physical isolation was required, then consider the following:
@@ -80,7 +79,7 @@ If this pattern was also to include backup and physical isolation was required, 
 - Deploy bare metal servers in the protected region for uses a backup repositories.
 - Use IBM Cloud Object Storage with Veeam direct access or gateway access. See [Object Storage Repository Deployment](https://helpcenter.veeam.com/docs/backup/vsphere/object_storage_repository.html?ver=120#object-storage-repository-deployment){: external}.
 
-  Original deployment 
+  Original deployment
 
 The above decision tree lists options and approach for a Veeam deployment on IBM cloud.
 

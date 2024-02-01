@@ -71,7 +71,7 @@ Once a KMS has been added, Veeam requests the KMS server to generate an asymmetr
 
 The generated public key is stored in the Veeam Backup & Replication configuration database and used for data encryption while the private key is stored on the KMS server and used for data decryption.
 
-KMS server options on IBM Cloud:
+**KMS server options on IBM Cloud:**
 
 1. IBM Cloud Key Protect (as a service shared HSM, not compatible with Veeam native encryption)
 2. IBM Cloud Hyper Protect Crypto Service (as a service dedicated hardware HSM, not compatible with Veeam native encryption)
@@ -80,8 +80,6 @@ KMS server options on IBM Cloud:
 To integrate IBM Cloud Key Protect or Hyper Crypto Services with a VCS deployment a KMIP is needed, see [KMIP for VMware implementation and management](/docs/vmwaresolutions?topic=vmwaresolutions-kmip-implementation. However, currently this KMIP server cannot be used with Veeam {: note}
 
 Consider IBM Security Guardium Key Lifecycle Manager for use with both Veeam and vSphere encryption, IBM Security Guardium Key Lifecycle Manager KMIP is supported by both Veeam and VMware.
-
-
 
 ![KMS integration with Veeam](image/KMS-Integration-Veeam.png)
 

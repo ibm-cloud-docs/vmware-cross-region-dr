@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-12-26"
+lastupdated: "2024-2-01"
 
 subcollection: vmware-cross-region-dr
 
@@ -28,7 +28,7 @@ The requirements for the network aspect for the Veeam for disaster recovery are 
 - The Veeam VMware Backup and CDP proxies must communicate with their peers at the remote sites.
 - The Veeam VMware Backup and CDP proxies must communicate with the ESXi hosts located at their site.
 
-## Veeam Networking Design considerations
+## Veeam networking design considerations
 
 Here are some key areas that you must keep in mind while designing Veeam backup and replication for Disaster recovery environment on IBM Cloud.
 
