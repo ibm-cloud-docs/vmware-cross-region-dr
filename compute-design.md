@@ -79,7 +79,7 @@ If this pattern was also to include backup and physical isolation was required, 
 - Deploy bare metal servers in the protected region for uses a backup repositories.
 - Use IBM Cloud Object Storage with Veeam direct access or gateway access. See [Object Storage Repository Deployment](https://helpcenter.veeam.com/docs/backup/vsphere/object_storage_repository.html?ver=120#object-storage-repository-deployment){: external}.
 
-  Original deployment
+  **Original deployment**
 
 The above decision tree lists options and approach for a Veeam deployment on IBM cloud.
 
