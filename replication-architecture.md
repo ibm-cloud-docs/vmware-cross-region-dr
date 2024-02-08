@@ -7,17 +7,16 @@ subcollection:
 
 keywords:
 ---
+
 # Architecture decisions for replication
 
 {: \#resiliency-architecture}
 
-The following sections summarize the Veeam Disaster Recovery on IBM Cloud for VMware architecture.
+The following are replication architecture decisions for the VMware Disaster Recovery using Veeam.
 
-## Architecture decisions for high availability
+| Architecture decision  | Requirement                                                                       | Option                                                            | Decision                        | Rationale                                                                                                                                                                                                              |
+|------------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Replication type       | Replicate the VM data between the IBM regions so that the VMs could be recovered. | Standard Veeam replication Veeam Continuous Data Protection (CDP) | Dependent on the RPO/RTO target | If RPO in minutes, CDP, otherwise standard Veeam replication                                                                                                                                                           |
+| Recovery site location | Replicate the virtual machines to another IBM location.                           | Availability zone in the same region, different region            | Different region                | While it is unlikely that two availability zones suffer an outage at the same time, there may be some risk that a client considers to be unacceptable. therefore, select another IBM region for the recovery location. |
 
-{: \#high-availability}
-
-| Architecture decision                          | Requirement                                                                              | Option                                                                                                                                  | Decision                               | Rationale                                                    |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| High availability deployment of Veeam          | Ensure availability of resources if outages occur. Support SLA targets for availability. | If Primary Veeam is deployed as Bare Metal, HA can be a VSI instance. Its required to migrate all configs to VSI for recovery purposes. | Standard Veeam deployment on IBM Cloud | ??                                                           |
-| Replication type between the IBM Cloud regions | Replicate the VM data between the IBM regions so that the VMs could be recovered.        | Standard Veeam replication  Veeam Continuous Data Protection (CDP)                                                                      | Dependent on the RPO/RTO target        | If RPO in minutes, CDP, otherwise standard Veeam replication |
+{: caption="Table 1. Replication decisions" caption-side="bottom"}
