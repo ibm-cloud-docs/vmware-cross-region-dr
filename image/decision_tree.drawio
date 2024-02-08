@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-02-06T11:44:42.181Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.21 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="6946u4Mh9eqANvR5liNC" version="22.1.21" type="device" pages="5">
+<mxfile host="Electron" modified="2024-02-08T11:19:03.206Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.21 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="Of3xW1RbvFf3Lk4V6vs8" version="22.1.21" type="device" pages="5">
   <diagram name="Veeam" id="EK-IaFDj5gIDf1e9t6iN">
-    <mxGraphModel dx="2060" dy="1128" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1420" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -178,7 +178,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="vLJIc9MyE846H874pXE8" name="veeam_deployment">
-    <mxGraphModel dx="2943" dy="2780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1420" dy="1954" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -214,7 +214,7 @@
         <mxCell id="3o47zuskQ4emcLuhvPM6-5" value="Windows VSI &lt;br&gt;(hosted on IBM Cloud)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="412.5" y="-700" width="127.5" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="3o47zuskQ4emcLuhvPM6-6" value="Bare Metal Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="3o47zuskQ4emcLuhvPM6-6" value="Bare Metal Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="470" y="-930" width="100" height="20" as="geometry" />
         </mxCell>
         <mxCell id="3o47zuskQ4emcLuhvPM6-7" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="3o47zuskQ4emcLuhvPM6-4" target="3o47zuskQ4emcLuhvPM6-5" edge="1">
@@ -224,7 +224,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="3o47zuskQ4emcLuhvPM6-8" value="Windows VM &lt;br&gt;(hosted on the VMware deployment)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+        <mxCell id="3o47zuskQ4emcLuhvPM6-8" value="Windows VM &lt;br&gt;(hosted on the VMware deployment)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="150" y="-700" width="132.5" height="40" as="geometry" />
         </mxCell>
         <mxCell id="3o47zuskQ4emcLuhvPM6-14" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="3o47zuskQ4emcLuhvPM6-10" target="3o47zuskQ4emcLuhvPM6-4" edge="1">
