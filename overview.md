@@ -17,7 +17,7 @@ This pattern describes Veeam for disaster recovery for VMware workloads where bo
 
 This pattern is cross-region, which assumes that the recovery site is in a different geographic region than the protected location e.g. protected site is Frankfurt and the recovery location is Madrid. However, if required the pattern can use a recovery site in the same geographic region if required e.g. Frankfurt AZ1 and Frankfurt AZ3.
 
-**This pattern does not cover backup design and deployment pattern.**
+**This pattern does not cover backup design and deployment pattern.**{: note}
 
 Check to ensure that the minimum distance between the protected and recovery sites meets your requirement.
 {: important}
