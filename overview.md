@@ -24,7 +24,7 @@ Check to ensure that the minimum distance between the protected and recovery sit
 
 The decision tree, shown below, has been used to select Veeam as the disaster recover product.
 
-![A diagram of a workflow Description automatically generated](image/decision_tree-Veeam.drawio.png)
+![A diagram of a workflow Description automatically generated](image/decision_tree-Veeam.drawio.svg)
 
 ## IBM Architecture Framework
 

@@ -55,7 +55,9 @@ After deployement, the Veeam bare metal server is connected to 2 IBM Cloud priva
 - ESXi/vCenter management and NSX TEPs VLAN
 - vSAN/NFS, vMotion, NSX Edge TEPs VLAN
 
-More information regarding how the Veeam bare metal server is connected to these VLANs is available here:
+More information regarding how the Veeam bare metal server is connected to these VLANs is available here
+
+
 [https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam-bms-archi-physical\#veeam-bms-archi-physical-network](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam-bms-archi-physical#veeam-bms-archi-physical-network)
 
 ## Cross-region connectivity

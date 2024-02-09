@@ -28,7 +28,7 @@ Veeam Backup & Replication supports two types of replications, Veeam “standard
 
 Veeam replication is based on vSphere snapshots. During the first replication cycle a full replica of the data of the protected VM is created on the DR site. The following replication cycles are incremental, only changed blocks are copied (Veeam leverages VMware vSphere Changed Block Tracking (CBT), introduced in vSphere 7)
 
-![A green and white logo on a black background Description automatically generated](image/Veeam-Replication-Architecture.png)
+![A green and white logo on a black background Description automatically generated](image/Veeam-Replication-architecture.drawio.svg)
 
 Figure 1 Veeam standard replication architecture
 
@@ -46,7 +46,7 @@ CDP does not create or use snapshots and allows a much lower RPO (near zero) tha
 
 The I/O operations data is stored in the target datastore and associated to short-term restore points (allowing recovering to seconds or minutes before a disaster). Short term restore points are kept for a maximum of 24 hours. To recover VMs to an older state, additional “long term” restore points can be defined to allow recovering a VM state from hours or days ago. See[Continuous Data Protection (CDP)](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_replication.html?ver=120%3e){: external}.
 
-![A black background with white text Description automatically generated](image/Veeam-CDP.png)
+![A black background with white text Description automatically generated](image/Veeam-CDP-Architecture.svg)
 
 Figure 2 Veeam CDP replication architecture
 
