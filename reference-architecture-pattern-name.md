@@ -34,8 +34,6 @@ The disaster recovery pattern overview for VMware workloads on IBM Cloud Classic
 
 ![](image/VCS_Veeam_cross_region.drawio.svg)
 
-Figure 1Veeam Disaster Recovery Architecture on IBM Cloud
-
 Figure 1 Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) architecture
 
 The key features of this pattern are as follows:
