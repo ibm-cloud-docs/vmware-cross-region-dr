@@ -1,132 +1,106 @@
 ---
 copyright:
-years: 2023
-lastupdated: "2023-12-26"
+  years: 2023
+lastupdated: "2024-2-01"
+
 subcollection: vmware-cross-region-dr
+
+keywords:
 ---
-# VMware Disaster Recovery on IBM Cloud using Veeam.
+{{site.data.keyword.attribute-definition-list}}
 
-Reference architecture using Veeam for a DR solution for VMware workloads at source and target locations.
+# VMware disaster recovery on IBM Cloud using Veeam.
 
-- Supported by delivery and orderable via Cloud Catalog with near real-time RPO, RTO.
-- Protected workloads in DR zone must support Data Encryption. GPDR and other regulated markets requires PI/SPI data to be protected according to the laws.
+This pattern describes the use of Veeam for a disaster recovery solution for VMware workloads where both the protected and recovery sites are in IBM Cloud. Veeam was selected for the disaster recovery product because of the following:
+
+- Veeam is an add-on additional service that is orderable via the IBM Cloud Catalog.
+- Veeam Replication is a technology that creates an exact copy of the protected VMware virtual machine at the recovery site. The replication maintains this copy in sync with the protected VM with Recovery Point Objective (RPO) of hours. Replication provides minimum Recovery Time Objective (RTO) as the recovery replicas are in a ready-to-start state. See [Replication](https://helpcenter.veeam.com/docs/backup/vsphere/replication.html?ver=120){: external}.
+- Veeam Continuous Data Protection (CDP) is a technology that helps protect VMware virtual machines where data loss for seconds or minutes, not hours, is required. CDP also provides minimum RTO as the CDP replicas are in a ready-to-start state. See [Continuous Data Protection (CDP)](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_replication.html?ver=120){: external}.
+- Veeam supports VM encryption, and in this pattern, protected workloads must use data encryption as General Data Protection Regulation (GPDR), and other regulations requires Personally Identifiable Information (PII) or Sensitive Personal Information (SPI) data to be protected.
+
+This pattern focuses on replication of virtual machines for disaster recovery only. Veeam supports both backup and replication, however, backup is not discussed in this pattern. {: important}
+
+This pattern builds on Veeam best-practice guidance as follows:
+
+- Veeam Backup & Recovery server should be a virtual machine so that it can benefit from vSphere HA and be restarted due to hardware failure.
+- For replication, the Veeam Backup & Recovery server should be placed in the recovery site.
+- Veeam VMware Backup and CDP proxies should be placed "close" to the data source as the data is not yet compressed or de-duplicated.
 
 ## Veeam Architecture overview
 
 {: \#architecture-diagram}
 
-Here is the Architecture overview
+The disaster recovery pattern overview for VMware workloads on IBM Cloud Classic (VCS) architecture is shown below.
 
-Key Components of Veeam on IBM Cloud
+![](image/VCS_Veeam_cross_region.drawio.svg)
 
-1. **IBM Cloud Infrastructure:**
-
-- VMware-based virtualized environment hosted on IBM Cloud.
-- Multiple ESXi hosts forming a cluster for running virtual machines.
-
-1. **Veeam Backup & Replication Server:**
-   1. Deployed within the VMware environment as a virtual machine.
-   2. Responsible for managing backup and replication jobs.
-2. **Veeam Backup Repository:**
-   1. A dedicated storage location for storing backup files.
-   2. Can be implemented as an IBM Cloud Object Storage or a high-performance block storage solution.
-3. **Veeam Backup Proxy:**
-   1. Installed on a separate virtual machine.
-   2. Facilitates data transfer between VMware infrastructure and the Veeam Backup & Replication server.
-4. **Veeam Backup Console:**
-   1. Web-based console for configuring and monitoring backup jobs.
-   2. Accessible from administrators' workstations.
-5. **Continuous Data Protection (CDP) Server:**
-   1. Deployed as a virtual appliance.
-   2. Ensures real-time replication of VMs for near-zero RPO (Recovery Point Objective).
-
-![](image/VeeamArchitectureDrawingVCS_Veeam_cross_region.drawio.png)
+Figure 1Veeam Disaster Recovery Architecture on IBM Cloud
 
 Figure 1 Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) architecture
 
-In this pattern, we are assuming that two IBM Cloud vCenter server instances have been provisioned in two different IBM Cloud regions. One of these instances will be used for production workloads, the other one will be mostly used for disaster recovery (but potentially also for development and test workloads that can be “sacrificed” when a disaster recovery is triggered as described in the “DR site compute sizing” section below)
+The key features of this pattern are as follows:
 
-Connectivity from on premises to any of the IBM Cloud environments is considered as out of scope for this pattern.
+1. **IBM Cloud Infrastructure:**
+   1. Two VMware-based virtualized environments hosted on IBM Cloud. Region 1 hosts the protected environment, and Region 2 hosts the recovery environment. Potentially the recovery region can also host development and test workloads that can be “sacrificed” when a disaster recovery is invoked or tested.
+   2. Multiple ESXi bare metal servers forming a cluster hosting virtual machines.
+2. **Veeam Backup & Replication Server:**
+   1. Responsible for managing the replication jobs.
+   2. Deployed onto a Microsoft Windows operating system.
+   3. Deployed within the recovery VMware environment as a virtual machine.
+   4. Veeam is deployed using the [Simple Deployment](https://helpcenter.veeam.com/docs/backup/vsphere/simple.html?ver=120){: external} scenario, also know as all-in-one.
+   5. The virtual machine deployment was selected to leverage the benefit from vSphere HA.
+   6. The recovery site was selected so that the server is available to quickly restore protected virtual machines.
+3. **Veeam Repository:**
+   1. The backup repository is responsible for storing replication metadata of the Veeam VMware Replication proxies.
+   2. The backup repository stores replica metadata that contains information on the read data blocks. See [Backup Repository](https://helpcenter.veeam.com/docs/backup/vsphere/replication_components.html?ver=120#backup-repository){: external}.
+   3. Only backup repository at the protected site is required.
+   4. In this pattern the backup repository is installed on a Linux virtual machine.
+   5. Backup repositories can be hosted on Microsoft Windows or Linux operating systems.
+   6. The repository has a single network interface, one on an IBM Cloud portable subnet used for proxies and on the IBM Cloud Private VLAN - Primary (Management) to enable efficient traffic flow from the Veeam VMware Backup proxy to the backup replication.
+   7. See [VMware Backup Proxies](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120){: external}.
+4. **Veeam Backup Proxy:**
+   1. The backup proxy is responsible for replication of virtual machines.
+   2. A minimum of one backup proxy per site is required, however, multiple backup proxies should be deployed for availability and scaling.
+   3. In this pattern backup proxies are installed on Linux virtual machines.
+   4. Backup proxies can be hosted on Microsoft Windows or Linux operating systems.
+   5. The proxies have two network interfaces; one on an IBM Cloud portable subnet used for proxies and on the IBM Cloud Private VLAN - Primary (Management) and a second on an IBM Cloud portable subnet on the IBM Cloud Private VLAN - Secondary (Storage/vMotion). This is to enable efficient traffic flow from the ESXi hosts' vmk0 interfaces to the proxies and the from the proxies to the remote proxies bypassing the firewalls.
+   6. See [VMware Backup Proxies](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120){: external}.
+5. **Veeam VMware CDP Proxy:**
+   1. The VMware CDP backup proxy is responsible for replication of virtual machines using CDP.
+   2. VMware CDP backup proxies are only needed if RPO in seconds is needed.
+   3. A minimum of one VMware CDP proxy per site is required, however, multiple VMware CDP proxies should be deployed for availability and scaling.
+   4. In this pattern VMware CDP proxies are installed on Linux virtual machines.
+   5. Backup proxies can be hosted on Microsoft Windows or Linux operating systems.
+   6. The proxies have two network interfaces; one on an IBM Cloud portable subnet used for proxies and on the IBM Cloud Private VLAN - Primary (Management) and a second on an IBM Cloud portable subnet on the IBM Cloud Private VLAN - Secondary (Storage/vMotion). This is to enable efficient traffic flow from the ESXi hosts' vmk0 interfaces to the proxies and the from the proxies to the remote proxies bypassing the firewalls.
+   7. See [VMware CDP Proxies](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120){: external}
+6. **I/O filter:**
+   1. You must install the I/O filter on each cluster to be able to use CDP.
+   2. The I/O filter reads and processes I/O operations in transit between the protected virtual machines and their underlying datastore and sends/receives data to/from the VMware CDP proxies.
+   3. The I/O filter leverages vSphere API for I/O filtering (VAIO).
+   4. See [I/O Filter](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120){: external}
+7. **Veeam Backup Console:**
+   1. Console for configuring and monitoring replication jobs.
+   2. Installed by default on the Veeam Backup & Replication Server.
+   3. It is recommended that it is uninstalled from the Veeam Backup & Replication Server and installed on DevOps consoles.
+   4. See [Installing Veeam Backup &amp; Replication Console](https://helpcenter.veeam.com/docs/backup/vsphere/install_console.html?ver=120){: external}
+8. **Veeam ONE:**
+   1. Veeam ONE, part of the Veeam Availability Suite, provides visibility into Veeam-protected workloads.
+   2. Veeam ONE provides; monitoring, reporting, alerting, diagnostics with automated resolutions and infrastructure utilization and capacity planning.
 
-The Veeam solution available from IBM Cloud VMware Solutions catalog is based on Veeam Backup and Replication 12 and Veeam Availability Suite 12.
+## Considerations
 
-The solution enables the backup of VMware workloads as well as their replication between different ESXi hosts/clusters/environments.
+Consider the following when reviewing the pattern:
 
-Although this pattern focuses on using Veeam for disaster recovery, we will quickly cover some backup aspects when it makes sense as we believe this is the most common use case for Veeam.
-
-## Veeam solution components
-
-**Production site**
-
-On the source (production) site in the first IBM Cloud region, all the necessary Veeam Backup and Recovery components are installed on the same bare metal server
-
-![A screenshot of a computer Description automatically generated](image/Veeamcomponents.drawio.png)
-
-Figure 2 Veeam Components running on the all-in-one bare metal server deployment
-
-Veeam Components running on the all-in-one bare metal server deployment
-
-The bare metal server is provisioned with a Windows Server 2019 operating system, the Veeam components are installed as applications on top of it.
-
-More details on the components can be found here: [https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam-bms-archi-components](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam-bms-archi-components)
-
-Based on the environment size and the customer’s requirements, additional backup/CDP proxies can be added.
-
-**Additional Veeam backup/CDP proxies**
-
-Any existing Windows or Linux physical or virtual server can be converted into a backup or CDP proxy. This is achieved by assigning the proper role to these virtual or physical servers from the Veeam Backup and Replication console.
-
-In this pattern we decided to use IBM Cloud linux VSIs running in the DR environment as Veeam backup/CDP proxies. This allows us to limit the costs while keeping the networking as simple as possible (not requiring any portable IP address or GRE tunnel).
-
-See [https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120) and [https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120) for more information on adding backup/CDP proxies.
-
-Note that for CDP, an I/O filter needs to be installed on every VMware **consolidated** cluster where protected/restored VM is/will be running (see [https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120))
-
-Note that Veeam recommends having at least 2 backup/CDP proxies on each site to provide some level of redundancy.
-
-Replication performance will increase when additional proxies are added as the replication jobs then get distributed across the proxies.
-
-This pattern only shows the minimum components needed for a functional replication between the 2 regions, the exact number and types of Veeam proxies needed depend on each customer’s environment and requirements.
-
-**DR site**
-
-On the DR site, in the second IBM Cloud region, the following additional components are required:
-
-- At least 1 Veeam backup proxy (only if standard Veeam replication, with an RPO in hours, will be used)
-- At least 1 Veeam CDP proxy (only if continuous data protection replication, with an RPO in seconds, will be used)
-
-**Application-aware backups**
-
-**For VMs running specific applications (Microsoft Active Directory, Microsoft Exchange, Microsoft SharePoint, Microsoft SQL Server, **Ora**c**le** Database or PostgreSQL) Veeam can create transactionally consistent backups and replicas. In order to achieve this a Veeam agent needs to be installed in the VM (the installation is done either by **a  “**guest interaction proxy” for windows VMs or the backup server for other types of VMs).**
-
-**S**ee[https://helpcenter.veeam.com/docs/backup/vsphere/guest_interaction_proxy.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/guest_interaction_proxy.html?ver=120) 
-
-a**nd** 
-
-****[https://helpcenter.veeam.com/docs/backup/vsphere/guest_processing.html?ver=120](https://helpcenter.veeam.com/docs/backup/vsphere/guest_processing.html?ver=120) for more information**.**
-
-## Requirements
-
-| **Aspect** | **Requirement**                                                                                                                                             |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Compute          | Disaster Recovery for VMWare Workloads                                                                                                                            |
-| Storage          | Storage to support Veeam component and to backup the workloads                                                                                                    |
-| Security         | Provide data encryption at rest and in transit                                                                                                                    |
-| Resiliency       | Replicate VMware workloads from production site to an alternate site in a different region for failover of workloads in the event of failure in the primary site. |
-|                  | Failover that meets the RTO/RPO application requirements                                                                                                          |
-
-Table 1. Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) requirements
-
-## Components
-
-| **Aspect**     | **Component**          | **How the component is used**                                                                                                                      |
-| -------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Data                 | PostgreSQL                   | Embedded database used as the Veeam Backup and Replication configuration database                                                                        |
-| Compute              | Bare Metal on IBM Cloud      | All in One backup and replication solution (backup repository, backup/CDP proxy, backup server, console) physically isolated from the VMware environment |
-|                      | IBM Cloud classic VSI        | Veeam backup/CDP proxies on the disaster recovery site                                                                                                   |
-| Storage              | Direct Attached Storage      | Storage repository for backup                                                                                                                            |
-|                      | Cloud Object Storage         | Optional – Can be used as second tier backup storage or as a Veeam scale-out backup repository                                                          |
-| Networking           | IBM Cloud backbone           | Replication Traffic between regions                                                                                                                      |
-| **Resiliency** | Veeam Backup and Replication | DR solution for VMware workloads at source and target locations                                                                                          |
-
-Table 2. Veeam Disaster Recovery solution for VMware Workloads on IBM Cloud Classic (VCS) components
+- Network connectivity from on-premises to the IBM Cloud environments is considered as out of scope for this pattern.
+- The Veeam solution available from IBM Cloud VMware Solutions catalog leverages Veeam Availability Suite 12 which consists of Veeam Backup & Replication and Veeam ONE.
+- While the IBM Cloud automation deploys the optional add-on Veeam service, it deploys it as an-all-in-one deployment scenario. While applicable for some use-cases it only provides the base for this disaster recovery pattern. Therefore, additional post deployment tasks are required, including; ordering additional private portable subnets, deploying virtual machines, deploying Veeam services onto ESXi hosts and virtual machines.
+- The configuration of the Veeam Backup & Replication server should be configured for a scheduled backup. This pattern recommends using an IBM Cloud Object Storage bucket.
+- For more information on the Veeam components see the following:
+  - [Requirements and limitations for VMware backup proxies](file:////docs/vmwaresolutions%3ftopic=vmwaresolutions-veeam_proxies_req).
+  - [Transport Modes](file:////docs/vmwaresolutions%3ftopic=vmwaresolutions-veeam_proxies_transp_modes).
+  - [VMware backup proxy](file:////docs/vmwaresolutions%3ftopic=vmwaresolutions-veeam_proxies_vmware_backup_proxy).
+  - [VMware CDP proxy](file:////docs/vmwaresolutions%3ftopic=vmwaresolutions-veeam_proxies_vmware_cdp_proxy).
+  - [Object storage repositories](file:////docs/vmwaresolutions%3ftopic=vmwaresolutions-veeam_repo_obj_storage).
+- For CDP, an I/O filter needs to be installed on every VMware cluster where protected or recovered virtual machines will be hosted. See [Installing I/O Filter](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120){: external}.
+- Veeam recommends having at least two Veeam VMware backup or CDP proxies on each site to provide some level of redundancy. Replication performance will increase when additional proxies are added as the replication jobs then get distributed across the proxies. This pattern only shows the minimum components needed for a functional replication between the 2 regions, the exact number and types of Veeam proxies needed depend on each customer’s environment and requirements.
+- While any Windows or Linux bare metal server, virtual server instance or virtual machine can be leveraged for a backup or CDP proxy, this pattern assumes a Linux virtual machine are used. If your requirements are different consider a different operating system or hardware environment.
