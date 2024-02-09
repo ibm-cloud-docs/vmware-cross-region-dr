@@ -9,7 +9,7 @@ keywords:
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Compute Overview
+# Overview
 
 {: \#overview}
 
