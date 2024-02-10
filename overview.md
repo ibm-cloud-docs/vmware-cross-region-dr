@@ -37,7 +37,7 @@ Following the Architecture Framework, the VMware Disaster Recovery solution usin
 - Resiliency: High Availability, Backup and Restore
 - Service Management: Monitoring, Logging, Auditing, Alerting
 
-The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more details, see [Introduction to the Architecture Framework](file:////docs/architecture-framework).
+The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more details, see [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro).
 
 ### Requirements
 
