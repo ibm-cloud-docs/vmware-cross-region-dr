@@ -3,7 +3,7 @@ copyright:
   years: 2023
 lastupdated: "2023-12-26"
 
-subcollection: vmware-cross-region-dr
+subcollection: <vmware-cross-region-dr>
 
 keywords:
 ---

@@ -3,7 +3,7 @@ copyright:
   years: 2023
 lastupdated: "2024-01-31"
 
-subcollection: pattern-vpc-vsi-multizone-resiliency
+subcollection: vmware-cross-region-dr
 
 keywords:
 ---

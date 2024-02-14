@@ -58,7 +58,7 @@ After deployement, the Veeam bare metal server is connected to 2 IBM Cloud priva
 More information regarding how the Veeam bare metal server is connected to these VLANs is available here
 
 
-[https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam-bms-archi-physical\#veeam-bms-archi-physical-network](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam-bms-archi-physical#veeam-bms-archi-physical-network)
+[Veeam Documentation on IBM Cloud](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam-bms-archi-physical#veeam-bms-archi-physical-network){: external}.
 
 ## Cross-region connectivity
 

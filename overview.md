@@ -9,9 +9,11 @@ keywords:
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Overview
+# Deploy IBM Cloud Resiliency Design for Veeam on VMWare
 
 {: \#overview}
+
+Overview
 
 This pattern describes Veeam for disaster recovery for VMware workloads where both the protected and recovery sites are in IBM Cloud. While this pattern describes a Veeam deployment using the add-on additional services only available with the IBM Cloud vCenter Server platform, the pattern can be extrapolated for use with the VCF in VPC platform, however, the deployment of the Veeam server will need to be done manually using IBM Cloud licenses ordered through the IBM Cloud for VMware Solutions console.
 
@@ -37,7 +39,7 @@ Following the Architecture Framework, the VMware Disaster Recovery solution usin
 - Resiliency: High Availability, Backup and Restore
 - Service Management: Monitoring, Logging, Auditing, Alerting
 
-The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more details, see [Introduction to the Architecture Framework](file:////docs/architecture-framework).
+The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more details, see [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro){: external}.
 
 ### Requirements
 
