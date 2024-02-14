@@ -3,7 +3,7 @@ copyright:
   years: 2024
 lastupdated: "2024-01-29"
 
-subcollection: mware-cross-region-d
+subcollection: <vmware-cross-region-dr>
 
 keywords:
 ---
