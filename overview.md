@@ -13,7 +13,7 @@ keywords:
 
 {: \#overview}
 
-## Overview
+Overview
 
 This pattern describes Veeam for disaster recovery for VMware workloads where both the protected and recovery sites are in IBM Cloud. While this pattern describes a Veeam deployment using the add-on additional services only available with the IBM Cloud vCenter Server platform, the pattern can be extrapolated for use with the VCF in VPC platform, however, the deployment of the Veeam server will need to be done manually using IBM Cloud licenses ordered through the IBM Cloud for VMware Solutions console.
 
