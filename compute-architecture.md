@@ -26,6 +26,6 @@ The following are compute architecture decisions for the vmware-dr pattern.
 
 {: caption="Table 1. Architecture decisions for compute" caption-side="bottom"}
 
-{: important} These architecture decisions are addressing pure disaster recovery use case scenarios.
+These architecture decisions are addressing pure disaster recovery use case scenarios.
 
 For backup use cases the deployment requirements can be different, such as have a separate dedicated Veeam backup environment, this pattern don’t address the backup design and solution aspect
