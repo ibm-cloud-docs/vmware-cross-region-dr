@@ -7,10 +7,9 @@ subcollection: <vmware-cross-region-dr>
 
 keywords:
 ---
-
 {{site.data.keyword.attribute-definition-list}}
 
-# Deploy IBM Cloud Resiliency Design for Veeam on VMWare
+# Deploy IBM Cloud Resiliency Design with Veeam on VMWare
 
 {: \#overview}
 
