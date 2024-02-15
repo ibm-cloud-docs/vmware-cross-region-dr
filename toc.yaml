@@ -12,7 +12,7 @@ toc:
     content-type: deployment
     href: /docs/vmware-cross-region-dr
     path: vmware-cross-region-dr
-    description: VMware Disaster Recovery on IBM Cloud using Veeam
+    description: Disaster Recovery on IBM Cloud with Veeam
     label: Deploy IBM Cloud Resiliency Design for Veeam on VMWare
 
   entries:
