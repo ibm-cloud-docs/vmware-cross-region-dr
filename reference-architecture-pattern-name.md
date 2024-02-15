@@ -9,7 +9,7 @@ keywords:
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# IBM Cloud Resiliency Design with Veeam on VMWare
+# Deploy IBM Cloud resiliency design for Veeam on VMWare
 
 This pattern describes the use of Veeam for a disaster recovery solution for VMware workloads where both the protected and recovery sites are in IBM Cloud. Veeam was selected for the disaster recovery product because of the following:
 
