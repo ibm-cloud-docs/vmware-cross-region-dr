@@ -36,6 +36,8 @@ The requirements for the security aspect for the Veeam for disaster recovery for
 | **Compliance**                 | **Regulatory Compliance:** Ensure that the Veeam CDP deployment within the IBM Cloud adheres to relevant industry regulations and compliance standards, such as GDPR, HIPAA, or any other applicable requirements.                                                                                                                                                                                          |
 | **Data Residency and Privacy** | **Data Residency Policies:** Understand and comply with data residency requirements by configuring Veeam CDP to align with IBM Cloud's data residency policies. **Privacy Considerations:** Address privacy concerns by implementing anonymization or pseudonymization of sensitive data within backups                                                                                               |
 
+{: caption="Table 1. Security design considerations" caption-side="bottom"}
+
 By addressing these security requirements, organizations can establish a robust and resilient Veeam CDP deployment on VMware within the IBM Cloud environment, safeguarding critical data and ensuring the integrity of their backup and recovery processes.
 
 ## Veeam security and compliance analyzer
