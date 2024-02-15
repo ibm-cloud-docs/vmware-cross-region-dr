@@ -43,7 +43,7 @@ Here are some key areas that you must keep in mind while designing Veeam backup 
 | **DNS Configuration:**                | **Name Resolution:** Ensure proper DNS configuration for Veeam components and VMware infrastructure to enable seamless name resolution. This is essential for the identification and communication between components                                                                                                                                 |
 | **Time Synchronization:**             | **NTP (Network Time Protocol):** Synchronize the clocks across Veeam components, VMware hosts, and other relevant systems using NTP to ensure accurate timestamps for logs and data consistency.                                                                                                                                                      |
 | **Redundancy and High Availability:** | **Redundant Network Paths:** Configure redundant network paths to provide high availability and fault tolerance, ensuring that a failure in one path does not disrupt data transfer operations.                                                                                                                                                       |
-
+{: caption="Table 1.Networking design considerations" caption-side="bottom"}
 When deployed the Veeam bare metal server is connected to the IBM Cloud primary private VLAN only, with no public connectivity by default. If you need to connect to the IBM Cloud secondary private VLAN, then you will need to trunk this VLAN to the host. Additionally static routes will need to be added for efficient routing
 
 Each Veeam bare metal server is deployed with dual private only 10 GbE NICs with standard NIC teaming.

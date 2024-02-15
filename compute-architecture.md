@@ -23,6 +23,7 @@ The following are compute architecture decisions for the vmware-dr pattern.
 | Veeam VMware Backup/CDP proxies deployment type      | Host the necessary Veeam proxies                                    | Bare Metal Server, IBM Cloud VSI, VM hosted on the VMware environment                           | VM hosted on the VMware environment               | Adopting the strategy of one VM proxy per host is preferred for NFS and vSAN deployments.                                                                                                                                                                                                                                  |
 | Initial number of Veeam VMware proxies               | Provide sufficient level of resiliency and performance              | 1 Veeam VMware Backup/CDP proxy per site, Multiple Veeam VMware Backup/CDP proxies per site     | Multiple Veeam VMware Backup/CDP proxies per site | Provide redundancy to avoid replication tasks to be blocked when one of the backup/CDP proxies becomes unavailable. Veeam advise when using virtual machine proxies and NFS v3 or vSAN to use a proxy per host and use VM-Host affinity rules.                                                                             |
 
+{: caption="Table 1. Architecture decisions for compute" caption-side="bottom"}
 {: important}
 
 These architecture decisions are addressing pure disaster recovery use case scenarios.
