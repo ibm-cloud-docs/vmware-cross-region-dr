@@ -13,7 +13,7 @@ keywords:
 
 {: \#storage-design}
 
-This document expands on the storage aspect of the IBM Architecture framework in respect of the Veeam for disaster recovery for VMware workloads pattern.
+This pattern expands on the storage aspect of the IBM Architecture framework in respect of the Veeam for disaster recovery for VMware workloads pattern.
 
 ## Requirements
 

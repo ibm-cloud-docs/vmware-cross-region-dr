@@ -9,7 +9,7 @@ keywords:
 ---
 # Service management design
 
-This document expands on the service management aspect of the IBM Architecture framework in respect of the Veeam for disaster recovery for VMware workloads pattern.
+This pattern expands on the service management aspect of the IBM Architecture framework in respect of the Veeam for disaster recovery for VMware workloads pattern.
 
 The requirements for the compute aspect for the Veeam for disaster recovery for VMware workloads pattern focuses on the following:
 
