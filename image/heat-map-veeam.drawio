@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-02-20T11:34:54.032Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="ulhmBRLpMysyQ579pk-b" version="23.0.2" type="device">
+<mxfile host="Electron" modified="2024-02-20T11:39:42.976Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="In0RSs2uvU-Q0JcgnvIX" version="23.0.2" type="device">
   <diagram id="iQk230hBdAGukSs-h0T6" name="Page-1">
-    <mxGraphModel dx="2060" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1228" dy="812" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -127,9 +127,6 @@
         <mxCell id="vvGwZ6liFT7NTi3uzbrW-63" value="&lt;b&gt;Alerting&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=0;" parent="1" vertex="1">
           <mxGeometry x="589" y="466" width="135" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="vvGwZ6liFT7NTi3uzbrW-64" value="Event management" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#6c8ebf;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#dae8fc;fontStyle=1;" parent="1" vertex="1">
-          <mxGeometry x="732" y="466" width="135" height="42" as="geometry" />
-        </mxCell>
         <mxCell id="vvGwZ6liFT7NTi3uzbrW-65" value="Automated deployment" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
           <mxGeometry x="875" y="466" width="135" height="42" as="geometry" />
         </mxCell>
@@ -189,6 +186,9 @@
         </mxCell>
         <mxCell id="9zC9d3bsEImmLCJwYM-r-1" value="Artificial intelligence" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B0B0B0;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
           <mxGeometry x="875" y="116" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="3brtRqyDhTj-2Djj7--0-1" value="&lt;b&gt;Alerting&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="732" y="466" width="135" height="42" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
