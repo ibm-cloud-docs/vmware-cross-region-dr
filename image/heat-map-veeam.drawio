@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-02-20T11:39:42.976Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="In0RSs2uvU-Q0JcgnvIX" version="23.0.2" type="device">
+<mxfile host="Electron" modified="2024-02-20T11:42:59.515Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="FioF7afJywrMdFFSHMcG" version="23.0.2" type="device">
   <diagram id="iQk230hBdAGukSs-h0T6" name="Page-1">
     <mxGraphModel dx="1228" dy="812" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -187,7 +187,7 @@
         <mxCell id="9zC9d3bsEImmLCJwYM-r-1" value="Artificial intelligence" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#B0B0B0;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
           <mxGeometry x="875" y="116" width="135" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="3brtRqyDhTj-2Djj7--0-1" value="&lt;b&gt;Alerting&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=0;" vertex="1" parent="1">
+        <mxCell id="3brtRqyDhTj-2Djj7--0-1" value="&lt;b&gt;Event management&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=0;" parent="1" vertex="1">
           <mxGeometry x="732" y="466" width="135" height="42" as="geometry" />
         </mxCell>
       </root>
