@@ -9,7 +9,7 @@ toc:
     use-case: Public cloud
    # compliance: compliance-value
     audience: solution
-    content-type: deployment
+    content-type: reference-architecture
     href: /docs/vmware-cross-region-dr
     path: vmware-cross-region-dr
     description: Disaster Recovery on IBM Cloud with Veeam
