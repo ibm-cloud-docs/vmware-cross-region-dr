@@ -9,7 +9,7 @@ keywords:
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Deploy IBM Cloud Resiliency Design with Veeam on VMWare
+# Overview
 
 {: \#overview}
 
