@@ -62,7 +62,7 @@ Additionally, an optional Linux hardened repository, using a bare metal server w
 The decision tree below can be used to decide which option to select.
 
 ![A diagram of a server Description automatically generated](image/decision_tree-veeam_deployment.drawio.svg)
-{: caption="Figure 1 Veeam deployment options decision tree {{site.data.keyword.Bluemix_notm}} on IBM Cloud " caption-side="bottom"}
+{: caption="Figure 1. Veeam deployment options decision tree on IBM Cloud " caption-side="bottom"}
 
 For this disaster recovery pattern, there was no requirement for physical isolation of the backup, therefore, the virtual machine option was selected. The recovery site was selected for the deployment so that the Veeam Backup & Replication server was available instantly for disaster recovery invocation
 
