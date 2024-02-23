@@ -30,11 +30,7 @@ Veeam replication is based on vSphere snapshots. During the first replication cy
 
 ![A green and white logo on a black background Description automatically generated](image/Veeam-Replication-architecture.drawio.svg)
 
-{: caption="Figure 1 Veeam standard replication architecture {{site.data.keyword.Bluemix_notm}} on IBM Cloud " caption-side="bottom"}
-
-To adapt to IBM Cloud/recreate (remove the wan accelerators) – “standard” replication architecture.
-
-To adapt to IBM Cloud/recreate – “standard” replication architecture.
+{: caption="Figure 1 Veeam standard replication architecture on IBM Cloud" caption-side="bottom"}
 
 Veeam Replication is recommended to protect VMs with a recovery point objective (RPO) in hours. If a more aggressive RPO is needed, Veeam Continuous Data Protection must be used.
 
@@ -48,7 +44,7 @@ The I/O operations data is stored in the target datastore and associated to shor
 
 ![A black background with white text Description automatically generated](image/Veeam-CDP-Architecture.svg)
 
-{: caption="Figure 2 Veeam Continious Data Protection architecture {{site.data.keyword.Bluemix_notm}} on IBM Cloud " caption-side="bottom"}
+{: caption="Figure 2 Veeam Continious Data Protection architecture on IBM Cloud" caption-side="bottom"}
 
 CDP only works for powered on VMs. {: note}
 

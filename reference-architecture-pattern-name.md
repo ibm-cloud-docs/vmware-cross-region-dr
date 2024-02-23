@@ -24,7 +24,7 @@ This pattern focuses on replication of virtual machines for only disaster recove
 
 This pattern builds on Veeam best practice guidance:
 
-- The Veeam Backup and Recovery server should be a virtual machine so that it can benefit from vSphere High Availability(HA) and can be restarted if hardware failure occurs.
+- The Veeam Backup and Recovery server should be a virtual machine so that it can benefit from vSphere High Availability (HA) and can be restarted if hardware failure occurs.
 - For replication, the Veeam Backup and Recovery server should be placed in the recovery site.
 - Veeam VMware Backup and CDP proxies should be placed close to the data source as the data is not yet compressed or de-duplicated.
 
