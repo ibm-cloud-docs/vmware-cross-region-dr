@@ -1,4 +1,4 @@
----
+----
 copyright:
   years: 2024
 lastupdated: "2024-02-21"
@@ -10,9 +10,10 @@ keywords:
 {{site.data.keyword.attribute-definition-list}}
 
 # Overview
+
 {: #overview}
 
-This pattern describes Veeam for disaster recovery for VMware workloads where the protected and recovery sites are both hosted in {{site.data.keyword.Bluemix_notm}}. While this pattern describes a Veeam deployment that uses the add-on additional services available only with the {{site.data.keyword.Bluemix_notm}} vCenter Server platform, the pattern can be extrapolated for use with the VCF in VPC platform. The deployment of the Veeam server must be deployed manually by using {{site.data.keyword.Bluemix_notm}} licenses that are ordered through the {{site.data.keyword.Bluemix_notm}} for VMware Solutions console.
+This pattern describes Veeam for disaster recovery for VMware workloads where the protected and recovery sites are both hosted in {{site.data.keyword.Bluemix_notm}}. While this pattern describes a Veeam deployment that uses the add-on additional services available only with the {{site.data.keyword.Bluemix_notm}} vCenter Server platform, the pattern can be extrapolated for use with the VMware Cloud Foundation (VCF) in IBM Virtual Private Cloud (VPC) platform. The deployment of the Veeam server must be deployed manually by using {{site.data.keyword.Bluemix_notm}} licenses that are ordered through the {{site.data.keyword.Bluemix_notm}} for VMware Solutions console.
 
 This pattern does not cover backup design and deployment pattern. {: note}
 
