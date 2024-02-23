@@ -23,11 +23,7 @@ Standard Veeam replication is based on vSphere snapshots. During the first repli
 
 ![](image/Veeam-Replication-Architecture.png)
 
-Figure 1 Veeam standard replication architecture
-
-To adapt to IBM Cloud/recreate (remove the wan accelerators) – “standard” replication architecture.
-
-To adapt to IBM Cloud/recreate – “standard” replication architecture.
+{: caption="Figure 1 Veeam standard replication architecture {{site.data.keyword.Bluemix_notm}} on IBM Cloud " caption-side="bottom"}
 
 Standard Veeam replication is recommended to protect VMs with a recovery point objective (RPO) in hours. If a more aggressive RPO is needed, Veeam Continuous Data Protection must be used.
 

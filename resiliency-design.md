@@ -30,7 +30,7 @@ Veeam replication is based on vSphere snapshots. During the first replication cy
 
 ![A green and white logo on a black background Description automatically generated](image/Veeam-Replication-architecture.drawio.svg)
 
-Figure 1 Veeam standard replication architecture
+{: caption="Figure 1 Veeam standard replication architecture {{site.data.keyword.Bluemix_notm}} on IBM Cloud " caption-side="bottom"}
 
 To adapt to IBM Cloud/recreate (remove the wan accelerators) – “standard” replication architecture.
 
@@ -40,7 +40,7 @@ Veeam Replication is recommended to protect VMs with a recovery point objective 
 
 ## Veeam Continuous Data Protection
 
-Veaam Continuous Data Protection (CDP) constantly replicates the I/O operations of the VMs. It uses vSphere APIs for I/O filtering (VAIO) to read and process the communications between the protected VMs and their storage. CDP requires the installation of an I/O filter on the ESXi clusters where the protected workloads are running. The I/O filter is not automatically installed on the VCS clusters when the Veeam all-in-one is deployed, this needs to be manually done, see [Installing I/O Filter](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120){: external}.
+Veeam Continuous Data Protection (CDP) constantly replicates the I/O operations of the VMs. It uses vSphere APIs for I/O filtering (VAIO) to read and process the communications between the protected VMs and their storage. CDP requires the installation of an I/O filter on the ESXi clusters where the protected workloads are running. The I/O filter is not automatically installed on the VCS clusters when the Veeam all-in-one is deployed, this needs to be manually done, see [Installing I/O Filter](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120){: external}.
 
 CDP does not create or use snapshots and allows a much lower RPO (near zero) than standard snapshots based replication. {: note}
 
@@ -48,7 +48,7 @@ The I/O operations data is stored in the target datastore and associated to shor
 
 ![A black background with white text Description automatically generated](image/Veeam-CDP-Architecture.svg)
 
-Figure 2 Veeam CDP replication architecture
+{: caption="Figure 2 Veeam Continious Data Protection architecture {{site.data.keyword.Bluemix_notm}} on IBM Cloud " caption-side="bottom"}
 
 CDP only works for powered on VMs. {: note}
 

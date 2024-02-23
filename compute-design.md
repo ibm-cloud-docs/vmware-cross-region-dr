@@ -11,7 +11,7 @@ keywords:
 
 # Compute design
 
-{: \#compute-design}
+{: #compute-design}
 
 This pattern expands on the compute aspect of the IBM Architecture framework in respect of the Veeam for disaster recovery for VMware workloads pattern.
 
@@ -62,8 +62,7 @@ Additionally, an optional Linux hardened repository, using a bare metal server w
 The decision tree below can be used to decide which option to select.
 
 ![A diagram of a server Description automatically generated](image/decision_tree-veeam_deployment.drawio.svg)
-
-Figure 1 Veeam deployment options decision tree
+{: caption="Figure 1 Veeam deployment options decision tree {{site.data.keyword.Bluemix_notm}} on IBM Cloud " caption-side="bottom"}
 
 For this disaster recovery pattern, there was no requirement for physical isolation of the backup, therefore, the virtual machine option was selected. The recovery site was selected for the deployment so that the Veeam Backup & Replication server was available instantly for disaster recovery invocation
 
