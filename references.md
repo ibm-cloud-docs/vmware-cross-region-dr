@@ -27,5 +27,7 @@ Review the following references to guide you through the IBM Cloud resiliency de
 -   [Veeam Backup and Replication FAQ](https://www.veeam.com/availability-suite-faq.html)
 -   [Veeam Technical Documentation](https://www.veeam.com/documentation-guides-datasheets.html)
 
+{: #deployment}
+
 Deployment
 Veeam can be deployed when you create a VMware vCenter Server instance (VCS) on IBM Cloud with three different options for deployment.
