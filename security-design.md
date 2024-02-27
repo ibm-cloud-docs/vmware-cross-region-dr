@@ -11,7 +11,7 @@ keywords:
 
 # Security design
 
-{: \#security-design}
+{: #security-design}
 
 This pattern expands on the security aspect of the IBM Architecture framework in respect of the Veeam for disaster recovery for VMware workloads pattern.
 

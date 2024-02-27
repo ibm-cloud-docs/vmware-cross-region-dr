@@ -11,7 +11,7 @@ keywords:
 
 # Architecture decisions for resiliency and replication
 
-{: \#resiliency-architecture}
+{: #resiliency-architecture}
 
 The following sections summarize the Veeam Disaster Recovery on IBM Cloud for VMware architecture.
 

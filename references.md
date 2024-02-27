@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023
-lastupdated: "2023-12-26"
+  years: 2023, 2024
+lastupdated: "202-12-26"
 
 subcollection: 
 
@@ -13,7 +13,9 @@ keywords:
 
 # References
 
-{: \#references}
+{: #references}
+
+Review the following references to guide you through the IBM Cloud resiliency design for Veeam on VMware pattern.
 
 -   [Veeam on IBM Cloud overview](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeamvm_overview)
 -   [Ordering Veeam](https://cloud.ibm.com/docs/vmwaresolutions?topic=vmwaresolutions-veeam_ordering)

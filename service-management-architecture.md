@@ -10,7 +10,7 @@ keywords:
 
 # Architecture decisions for service management
 
-{: \#service}
+{: #service}
 
 The following are service management architecture decisions for the VMware Disaster Recovery using Veeam.
 

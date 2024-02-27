@@ -11,7 +11,7 @@ keywords:
 
 # Resiliency design
 
-{: \#resiliency-design}
+{: #resiliency-design}
 
 This pattern expands on the resiliency aspect of the IBM Architecture framework in respect of the Veeam for disaster recovery for VMware workloads pattern.
 

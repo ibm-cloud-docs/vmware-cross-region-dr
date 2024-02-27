@@ -11,7 +11,7 @@ keywords:
 
 # Architecture decisions for security
 
-{: \#security-architecture}
+{: #security-architecture}
 
 The following are security architecture decisions for the VMware Disaster Recovery using Veeam.
 

@@ -11,7 +11,7 @@ keywords:
 
 # Architecture decisions for storage
 
-{: \#storage-decisions}
+{: #storage-decisions}
 
 The following are storage architecture decisions for the VMware Disaster Recovery on IBM Cloud pattern.
 

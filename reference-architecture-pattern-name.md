@@ -11,7 +11,7 @@ keywords:
 
 # Deploy IBM Cloud resiliency design for Veeam on VMware
 
-{: }
+{: #deploy-veeam-arch}
 
 This pattern describes the use of Veeam for a disaster recovery solution for VMware workloads where both the protected and recovery sites are in {{site.data.keyword.Bluemix_notm}}. Veeam was selected for the disaster recovery product because of the following:
 
@@ -62,7 +62,7 @@ Review the key features of this pattern:
    - In this pattern backup proxies are installed on Linux virtual machines.
    - Backup proxies can be hosted on Microsoft Windows or Linux operating systems.
    - The proxies have two network interfaces; one on an {{site.data.keyword.Bluemix_notm}} portable subnet used for proxies and on the {{site.data.keyword.Bluemix_notm}} Private VLAN - Primary (Management) and a second on an {{site.data.keyword.Bluemix_notm}} portable subnet on the {{site.data.keyword.Bluemix_notm}} Private VLAN - Secondary (Storage/vMotion). This is to enable efficient traffic flow from the ESXi hosts' vmk0 interfaces to the proxies and the from the proxies to the remote proxies bypassing the firewalls.
-   - See [VMware Backup Proxies](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120){: external}.
+   - For more information, see [VMware Backup Proxies](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120){: external}.
 5. **Veeam VMware CDP Proxy:**
    - The VMware CDP backup proxy is responsible for replication of virtual machines using CDP.
    - VMware CDP backup proxies are only needed if RPO in seconds is needed.
@@ -70,17 +70,17 @@ Review the key features of this pattern:
    - In this pattern VMware CDP proxies are installed on Linux virtual machines.
    - Backup proxies can be hosted on Microsoft Windows or Linux operating systems.
    - The proxies have two network interfaces; one on an {{site.data.keyword.Bluemix_notm}} portable subnet used for proxies and on the {{site.data.keyword.Bluemix_notm}} Private VLAN - Primary (Management) and a second on an {{site.data.keyword.Bluemix_notm}} portable subnet on the {{site.data.keyword.Bluemix_notm}} Private VLAN - Secondary (Storage/vMotion). This is to enable efficient traffic flow from the ESXi hosts' vmk0 interfaces to the proxies and the from the proxies to the remote proxies bypassing the firewalls.
-   - See [VMware CDP Proxies](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120){: external}
+   - For more information, see [VMware CDP Proxies](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120){: external}
 6. **I/O filter:**
    - You must install the I/O filter on each cluster to be able to use CDP.
    - The I/O filter reads and processes I/O operations in transit between the protected virtual machines and their underlying datastore and sends/receives data to/from the VMware CDP proxies.
    - The I/O filter leverages vSphere API for I/O filtering (VAIO).
-   - See [I/O Filter](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120){: external}
+   - For more information, see [I/O Filter](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120){: external}
 7. **Veeam Backup Console:**
    - Console for configuring and monitoring replication jobs.
    - Installed by default on the Veeam Backup & Replication Server.
    - It is recommended that it is uninstalled from the Veeam Backup & Replication Server and installed on DevOps consoles.
-   - See [Installing Veeam Backup &amp; Replication Console](https://helpcenter.veeam.com/docs/backup/vsphere/install_console.html?ver=120){: external}
+   - For more information, see [Installing Veeam Backup &amp; Replication Console](https://helpcenter.veeam.com/docs/backup/vsphere/install_console.html?ver=120){: external}
 8. **Veeam ONE:**
    - Veeam ONE, part of the Veeam Availability Suite, provides visibility into Veeam-protected workloads.
    - Veeam ONE provides; monitoring, reporting, alerting, diagnostics with automated resolutions and infrastructure utilization and capacity planning.
@@ -100,25 +100,23 @@ The VMware Disaster Recovery solution using Veeam architecture covers [design co
 
 ![Architecture framework for Veeam deployment](image/heat-map-veeam.svg){: caption="Figure 2 Architecture framework for Veeam deployment on VMware {{site.data.keyword.Bluemix_notm}} IBM Cloud" caption-side="bottom"}
 
-The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. See [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro) for more details.
+The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more information, see [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro) for more details.
 
-### Design considerations
-
-{: #arch-frame-design}
+### Design considerations{: #arch-frame-design}
 
 Consider the following when reviewing the pattern:
 
 - Network connectivity from on-premises to the {{site.data.keyword.Bluemix_notm}} environments is considered as out of scope for this pattern.
-- The Veeam solution available from {{site.data.keyword.Bluemix_notm}} VMware Solutions Catalog leverages Veeam Availability Suite 12 which consists of Veeam Backup & Replication and Veeam ONE.
+- The Veeam solution available from {{site.data.keyword.Bluemix_notm}} VMware Solutions Catalog leverages Veeam Availability Suite 12 which consists of Veeam Backup and Replication and Veeam ONE.
 - While the {{site.data.keyword.Bluemix_notm}} automation deploys the optional add-on Veeam service, it deploys it as an-all-in-one deployment scenario. While applicable for some use-cases it only provides the base for this disaster recovery pattern. Therefore, additional post deployment tasks are required, including; ordering additional private portable subnets, deploying virtual machines, deploying Veeam services onto ESXi hosts and virtual machines.
-- The configuration of the Veeam Backup & Replication server should be configured for a scheduled backup. This pattern recommends using an {{site.data.keyword.Bluemix_notm}} Object Storage bucket.
-- For more information on the Veeam components see the following:
+- The configuration of the Veeam Backup and Replication server should be configured for a scheduled backup. This pattern recommends using an {{site.data.keyword.Bluemix_notm}} Object Storage bucket.
+- For more information on the Veeam components review the following:
   - [Requirements and limitations for VMware backup proxies](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy_requirements.html?ver=120).
   - [Transport Modes](https://helpcenter.veeam.com/docs/backup/vsphere/transport_modes.html?ver=120).
   - [VMware backup proxy](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120).
   - [VMware CDP proxy](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120).
   - [Object storage repositories](https://helpcenter.veeam.com/docs/backup/vsphere/object_storage_repository.html?ver=120).
-- For CDP, an I/O filter needs to be installed on every VMware cluster where protected or recovered virtual machines will be hosted. See [Installing I/O Filter](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120){: external}.
+- For CDP, an I/O filter needs to be installed on every VMware cluster where protected or recovered virtual machines will be hosted. For more information, see [Installing I/O Filter](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120){: external}.
 - Veeam recommends having at least two Veeam VMware backup or CDP proxies on each site to provide some level of redundancy. Replication performance will increase when additional proxies are added as the replication jobs then get distributed across the proxies. This pattern only shows the minimum components needed for a functional replication between the 2 regions, the exact number and types of Veeam proxies needed depend on each customer’s environment and requirements.
 - While any Windows or Linux bare metal server, virtual server instance or virtual machine can be leveraged for a backup or CDP proxy, this pattern assumes a Linux virtual machine are used. If your requirements are different consider a different operating system or hardware environment.
 
@@ -126,7 +124,7 @@ Consider the following when reviewing the pattern:
 
 {: #requirements}
 
-Using the IBM Architecture framework, the table below describes the requirements for the disaster recovery pattern:
+Using the IBM {{site.data.keyword.IBM_notm}} architecture framework, the following table describes the requirements for the disaster recovery pattern:
 
 | **Aspect**   | **Requirement**                                                                                                                                                                                                          |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -144,15 +142,15 @@ Using the IBM Architecture framework, the table below describes the requirements
 
 {: #components}
 
-Using the IBM Architecture framework, the table describes how the pattern's components deliver against the requirements for the disaster recovery pattern:
+Using the {{site.data.keyword.IBM_notm}} architecture framework, the following table describes how the pattern's components deliver against the requirements for the disaster recovery pattern:
 
 | **Aspect**   | **Component**                                                               | **How the component is used**                                                                                                                                                                                                                                                                                                                            |
 | ------------------ | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Data               | PostgreSQL, MS SQL Express                                                        | Veeam Backup & Replication uses a PostgreSQL database to store its configuration. Veeam ONE uses MS SQL Express for its database                                                                                                                                                                                                                               |
-| Compute            | VMware virtual machine                                                            | The virtual machine option was selected for this pattern so that the Veeam Backup & replication application, VMware Backup and CDP proxies could leverage vSphere HA and be restarted due to any hardware issues                                                                                                                                               |
-| Storage            | vSAN or {{site.data.keyword.Bluemix_notm}} File Storage, IBM Cloud Object Storage | vSAN or {{site.data.keyword.Bluemix_notm}} File Storage is used for the VMWare datastores in both the protected and recovery sites. For the Veeam Backup & replication configuration backup, {{site.data.keyword.Bluemix_notm}} Object Storage is used                                                                                                         |
-| Networking         | {{site.data.keyword.Bluemix_notm}} backbone                                       | The {{site.data.keyword.Bluemix_notm}} private network is used for replicate traffic between the proxies in the regions. Control traffic between the Veeam Backup & Replication server and the data-plane Veeam components also traverses this network                                                                                                         |
-| Resiliency         | Veeam replication and CDP                                                         | Veeam replication and CDP provide the resiliency of the VMware virtual machines to be protected and recovered. The resiliency of the Veeam data-plane components is accomplished by deploying multiple proxies. For the Veeam Backup & Replication server, vSphere HA and backups of the configuration database enables resiliency of the Veeam control-plane. |
+| Compute            | VMware virtual machine                                                            | The virtual machine option was selected for this pattern so that the Veeam Backup and replication application, VMware Backup and CDP proxies could leverage vSphere HA and be restarted due to any hardware issues                                                                                                                                               |
+| Storage            | vSAN or {{site.data.keyword.Bluemix_notm}} File Storage, IBM Cloud Object Storage | vSAN or {{site.data.keyword.Bluemix_notm}} File Storage is used for the VMWare datastores in both the protected and recovery sites. For the Veeam Backup and replication configuration backup, {{site.data.keyword.Bluemix_notm}} Object Storage is used                                                                                                         |
+| Networking         | {{site.data.keyword.Bluemix_notm}} backbone                                       | The {{site.data.keyword.Bluemix_notm}} private network is used for replicate traffic between the proxies in the regions. Control traffic between the Veeam Backup and Replication server and the data-plane Veeam components also traverses this network                                                                                                         |
+| Resiliency         | Veeam replication and CDP                                                         | Veeam replication and CDP provide the resiliency of the VMware virtual machines to be protected and recovered. The resiliency of the Veeam data-plane components is accomplished by deploying multiple proxies. For the Veeam Backup and Replication server, vSphere HA and backups of the configuration database enables resiliency of the Veeam control-plane. |
 | Service Management | Veeam ONE                                                                         | Veeam ONE, part of the Veeam Availability Suite, provides visibility into Veeam-protected workloads and provides; monitoring, reporting, alerting, diagnostics with automated resolutions and infrastructure utilization and capacity planning.                                                                                                                |
 
 {: caption="Table 2. Veeam Disaster Recovery solution for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) components" caption-side="bottom"}
