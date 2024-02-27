@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-02-27"
 
 subcollection: 
 
@@ -29,6 +29,7 @@ Review the following references to guide you through the IBM Cloud resiliency de
 
 
 
-**Deployment**
+## Deployment
+{: #deployment}
 
-Veeam can be deployed when you create a VMware vCenter Server instance (VCS) on IBM Cloud with three different options for deployment.
+Veeam can be deployed when you create a VMware vCenter Server instance (VCS) on {{site.data.keyword.Bluemix_short}} with three different options for deployment.
