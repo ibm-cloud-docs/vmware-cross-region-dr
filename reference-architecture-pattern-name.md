@@ -12,6 +12,9 @@ keywords:
 # Deploy IBM Cloud resiliency design for Veeam on VMware
 
 {: #deploy-veeam-arch}
+{: toc-content-type="reference-architecture"}
+{: toc-use-case="cloud"}
+{: toc-version="1.0"}
 
 This pattern describes the use of Veeam for a disaster recovery solution for VMware workloads where both the protected and recovery sites are in {{site.data.keyword.Bluemix_notm}}. Veeam was selected for the disaster recovery product because of the following:
 
