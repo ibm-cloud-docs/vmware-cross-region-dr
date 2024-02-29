@@ -11,7 +11,6 @@ keywords:
 {{site.data.keyword.attribute-definition-list}}
 
 # Architecture decisions for compute
-
 {: #compute-decisions}
 
 The following are compute architecture decisions for the VMware Disaster Recovery with Veeam pattern.
