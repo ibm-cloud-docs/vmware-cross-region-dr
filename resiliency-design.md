@@ -15,6 +15,7 @@ keywords:
 The following are resiliency design requirements and considerations for the VMware Disaster Recovery with Veeam pattern.
 
 ## Requirements
+{: #resiliency-requirements}
 
 - Replicate VMware workloads from a protected site to a recovery site that's in a different region for failover of workloads from a failure in the protected site.
 - Failover that meets the required RTO and RPO of the application.
@@ -22,6 +23,7 @@ The following are resiliency design requirements and considerations for the VMwa
 Veeam Backup and Replication support two types of replications, Veeam “standard” replication and Veeam Continuous Data Protection (CDP) replication.
 
 ## Veeam Replication
+{: #resiliency-veeam-rep}
 
 Veeam replication is based on vSphere snapshots. During the first replication cycle, a full replica of the data of the protected VM is created on the disaster recovery (DR) site. The following replication cycles are incremental. Only changed blocks are copied. Veeam uses VMware vSphere Changed Block Tracking (CBT), introduced in vSphere 7.
 
@@ -47,6 +49,7 @@ The I/O operations data is stored in the target data store and associated to sho
 CDP works for only powered on VMs. {: note}
 
 ## Resiliency considerations
+{: #resiliency-considerations}
 
 Review a few key considerations for resiliency:
 

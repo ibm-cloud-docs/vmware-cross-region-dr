@@ -12,7 +12,7 @@ keywords:
 # Replication design
 {: #replication-design}
 
-This pattern expands on the replication design aspect of the {{site.data.keyword.IBM_notm}} architecture framework for the Veeam for disaster recovery for VMware workloads.
+The following are replication design requirements and considerations for the VMware Disaster Recovery with Veeam pattern.
 
 The Veeam solution supports two types of replications, Veeam “standard” replication and Veeam Continuous Data Protection (CDP) replication. It's required to provide a way to replicate the VMware workloads in accordance with the target RPO.
 

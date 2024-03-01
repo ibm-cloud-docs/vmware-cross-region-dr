@@ -13,7 +13,7 @@ keywords:
 
 {: compute-design}
 
-This pattern expands on the compute aspect of the IBM architecture framework in respect of the Veeam for disaster recovery for VMware workloads pattern.
+The following are compute design requirements and considerations for the VMware Disaster Recovery with Veeam pattern.
 
 ## Requirement
 {: requirement-design}
