@@ -34,7 +34,7 @@ Review the requirements for the Veeam components:
  On {{site.data.keyword.Bluemix_notm}}, the add-on optional Veeam service has three compute deployment options:
 
 - Bare metal server with local storage.
-- {{site.data.keyword.Bluemix_notm}} classic Virtual Server Instance (VSI) with iSCSI storage.
+- {{site.data.keyword.Bluemix_notm}} Virtual Server Instance (VSI) with iSCSI storage.
 - A virtual machine with iSCSI storage hosted on the {{site.data.keyword.Bluemix_notm}} VMware deployment.
 
 All of the deployment options are “all-in-one”, for example, several Veeam components are all installed on the same compute and contain the minimum number of components that are needed for backing up the workloads that are hosted on the vCenter server instance.
