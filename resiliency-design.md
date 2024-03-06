@@ -73,7 +73,7 @@ Review a few key considerations for resiliency:
 
 The following are steps that are typically needed to recover the protected VMware workloads from a disaster. These steps are only provided for general guidance as each customer’s workload and scenario are unique.
 
-### Scenario 1:  A limited number of VMs become unavailable and corrupted in the production site
+## Scenario 1:  A limited number of VMs become unavailable and corrupted in the production site
 
 If a backup of the VMs covering the wanted recovery point is available in Veeam, restore the affected from backup in the protected site.
 
