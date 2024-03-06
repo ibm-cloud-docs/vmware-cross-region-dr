@@ -88,7 +88,6 @@ Review the key features of this pattern:
    - Veeam ONE provides; monitoring, reporting, alerting, diagnostics with automated resolutions and infrastructure utilization and capacity planning.
 
 ## Design Scope
-
 {: #design-scope}
 
 The VMware Disaster Recovery solution using Veeam architecture covers [design considerations](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-design) and [architecture decisions](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-architecture-decisions-for-compute) for the following aspects and domains (as defined in the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro)):
@@ -104,7 +103,8 @@ The VMware Disaster Recovery solution using Veeam architecture covers [design co
 
 The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more information, see [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro) for more details.
 
-### Design considerations{: #arch-frame-design}
+### Design considerations
+{: #arch-frame-design}
 
 Consider the following when reviewing the pattern:
 
@@ -112,7 +112,7 @@ Consider the following when reviewing the pattern:
 - The Veeam solution available from {{site.data.keyword.Bluemix_notm}} VMware Solutions Catalog leverages Veeam Availability Suite 12 which consists of Veeam Backup and Replication and Veeam ONE.
 - While the {{site.data.keyword.Bluemix_notm}} automation deploys the optional add-on Veeam service, it deploys it as an-all-in-one deployment scenario. While applicable for some use-cases it only provides the base for this disaster recovery pattern. Therefore, additional post deployment tasks are required, including; ordering additional private portable subnets, deploying virtual machines, deploying Veeam services onto ESXi hosts and virtual machines.
 - The configuration of the Veeam Backup and Replication server should be configured for a scheduled backup. This pattern recommends using an {{site.data.keyword.Bluemix_notm}} Object Storage bucket.
-- For more information on the Veeam components, review the following:
+- For more information on the Veeam components review the following:
   - [Requirements and limitations for VMware backup proxies](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy_requirements.html?ver=120).
   - [Transport Modes](https://helpcenter.veeam.com/docs/backup/vsphere/transport_modes.html?ver=120).
   - [VMware backup proxy](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120).
@@ -139,11 +139,12 @@ Using the {{site.data.keyword.IBM_notm}} architecture framework, the following t
 {: caption="Table 1. Veeam disaster recovery pattern for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) requirements " caption-side="bottom"}
 
 ## Components
+
 {: #components}
 
 Using the {{site.data.keyword.IBM_notm}} architecture framework, the following table describes how the pattern's components deliver against the requirements for the disaster recovery pattern:
 
-| **Aspect**   | **Component**                                                               | **How the component is used**                                                                                                                                                                                                                                                                                                                            |
+| Aspect  | Component                                                               | How the component is used                                                                                                                                                                                                                                                                                                                            |
 | ------------------ | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Data               | PostgreSQL, MS SQL Express                                                        | Veeam Backup and Replication uses a PostgreSQL database to store its configuration. Veeam ONE uses MS SQL Express for its database                                                                                                                                                                                                                               |
 | Compute            | VMware virtual machine                                                            | The virtual machine option was selected for this pattern so that the Veeam Backup and replication application, VMware Backup and CDP proxies could leverage vSphere HA and be restarted due to any hardware issues                                                                                                                                               |

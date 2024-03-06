@@ -10,7 +10,7 @@ keywords:
 
 # Architecture decisions for replication
 
-{: \#resiliency-architecture}
+{: #resiliency-architecture}
 
 The following are replication architecture decisions for the VMware Disaster Recovery using Veeam pattern.
 

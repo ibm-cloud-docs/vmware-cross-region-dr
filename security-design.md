@@ -12,7 +12,7 @@ keywords:
 # Security design
 {: #security-design}
 
-The following table summarizes the nsecurity design architecture decisions for the Veeam pattern. Securing Veeam Backup and Continuous Data Protection (CDP) on VMware within the {{site.data.keyword.Bluemix_notm}} environment requires careful consideration of various aspects to ensure the confidentiality, integrity, and availability of data.
+The following table summarizes the security design architecture decisions for the Veeam pattern. Securing Veeam Backup and Continuous Data Protection (CDP) on VMware within the {{site.data.keyword.Bluemix_notm}} environment requires careful consideration of various aspects to ensure the confidentiality, integrity, and availability of data.
 
 ## Requirements
 {: #requirements-security-design}

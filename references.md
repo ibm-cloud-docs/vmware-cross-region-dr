@@ -12,7 +12,6 @@ keywords:
 {{site.data.keyword.attribute-definition-list}}
 
 # References
-
 {: #references}
 
 Review the following references to guide you through the IBM Cloud resiliency design for Veeam on VMware pattern.

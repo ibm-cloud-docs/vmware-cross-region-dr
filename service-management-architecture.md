@@ -13,6 +13,7 @@ keywords:
 
 The following are the service management architecture decisions for the VMware Disaster Recovery using Veeam pattern.
 
+
 ## Architecture decisions for monitoring
 {: #monitoring}
 

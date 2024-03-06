@@ -21,11 +21,6 @@ The Veeam solution supports two types of replications, Veeam “standard” repl
 
 Standard Veeam replication is based on vSphere snapshots. During the first replication cycle, a full replica of the data of the protected virtual machine (VM) is created on the disaster recovery (DR) site. The following replication cycles are incremental and only changed blocks are copied. Veeam uses VMware vSphere Changed Block Tracking (CBT) that's introduced in vSphere 7.
 
-![Standard Veeam replication.](image/Veeam-Replication-Architecture.png "Standard Veeam replication"){: caption="Figure 1. Standard Veeam replication for the Veeam for disaster recovery for VMware workloads pattern. " caption-side="bottom"}
-
-To adapt to IBM Cloud/re-create (remove the wan accelerators) – “standard” replication architecture.
-
-To adapt to IBM Cloud/re-create – “standard” replication architecture.
 
 Standard Veeam replication is recommended to protect VMs with a recovery point objective (RPO) in hours. If a more aggressive RPO is needed, Veeam Continuous Data Protection must be used.
 {: note}

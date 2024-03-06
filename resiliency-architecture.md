@@ -14,6 +14,7 @@ keywords:
 
 The following tables summarize the architecture decisions for the Veeam Disaster Recovery on {{site.data.keyword.Bluemix_notm}} for VMware.
 
+
 ## Architecture decisions for resiliency
 {: #high-availability}
 

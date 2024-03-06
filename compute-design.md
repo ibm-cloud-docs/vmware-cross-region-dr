@@ -10,8 +10,7 @@ keywords:
 {{site.data.keyword.attribute-definition-list}}
 
 # Compute design
-
-{: compute-design}
+{: #compute-design}
 
 The following are compute design requirements and considerations for the VMware Disaster Recovery with Veeam pattern.
 
@@ -66,9 +65,9 @@ Also, an optional Linux hardened repository, that uses a bare metal server with 
 
 Use the following decision tree to decide which option to select.
 
-![A diagram of a server description automatically generated](image/decision_tree-veeam_deployment.drawio.svg){: caption="Figure 1. A diagram of a server description automatically generated" caption-side="bottom"}
-
 For this disaster recovery pattern, there was no requirement for physical isolation of the backup and the virtual machine option was selected. The recovery site was selected for the deployment so that the Veeam Backup and Replication server were available instantly for disaster recovery invocation.
+
+![A diagram of a server Description automatically generated](image/decision_tree-veeam_deployment.drawio.svg){: caption="Figure 1. Veeam deployment options on IBM Cloud" caption-side="bottom"}
 
 If this pattern was to include backup and physical isolation as a requirement, then consider the following:
 
