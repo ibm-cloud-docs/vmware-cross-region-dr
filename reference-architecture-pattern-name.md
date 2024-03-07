@@ -23,7 +23,7 @@ This pattern describes the use of Veeam for a disaster recovery solution for VMw
 - Veeam Continuous Data Protection (CDP) is a technology that helps protect VMware virtual machines where data loss for seconds or minutes, not hours, is required. CDP also provides a minimum RTO as the CDP replicas that are in a ready-to-start state. For more information, see [Continuous Data Protection (CDP)](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_replication.html?ver=120){: external}.
 - Veeam supports VM encryption, and in this pattern, protected workloads must use data encryption as General Data Protection Regulation (GPDR), and other regulations requires Personally Identifiable Information (PII) or Sensitive Personal Information (SPI) data to be protected.
 
-This pattern focuses on replication of virtual machines for only disaster recovery. However, veeam supports both backup and replication backup is not discussed in this pattern. {: important}
+This pattern focuses on replication of virtual machines for only disaster recovery. However, veeam supports both backup and replication. Backup is not discussed in this pattern. {: important}
 
 This pattern builds on Veeam best practice guidance:
 
@@ -47,7 +47,7 @@ Review the key features of this pattern:
    - Responsible for managing the replication jobs.
    - Deployed onto a Microsoft Windows operating system.
    - Deployed within the VMware recovery environment as a virtual machine.
-   - Veeam is deployed by using the [Simple Deployment](https://helpcenter.veeam.com/docs/backup/vsphere/simple.html?ver=120){: external} scenario that's also know as all-in-one.
+   - Veeam is deployed by using the [Simple Deployment](https://helpcenter.veeam.com/docs/backup/vsphere/simple.html?ver=120){: external} scenario that's also known as all-in-one.
    - The virtual machine deployment was selected to use the benefits from vSphere HA.
    - The recovery site was selected so that the server is available to quickly restore protected virtual machines.
 3. **Veeam Repository:**
@@ -70,7 +70,7 @@ Review the key features of this pattern:
    - VMware CDP backup proxies are only needed if RPO in seconds is needed.
    - A minimum of one VMware CDP proxy per site is required, however, multiple VMware CDP proxies should be deployed for availability and scaling.
    - In this pattern VMware CDP proxies are installed on Linux virtual machines.
-   - Backup proxies can be hosted on Microsoft Windows or Linux operating systems.
+   - VMware CDP proxies can be hosted on Microsoft Windows or Linux operating systems.
    - The proxies have two network interfaces; one on an {{site.data.keyword.Bluemix_notm}} portable subnet used for proxies and on the {{site.data.keyword.Bluemix_notm}} Private VLAN - Primary (Management) and a second on an {{site.data.keyword.Bluemix_notm}} portable subnet on the {{site.data.keyword.Bluemix_notm}} Private VLAN - Secondary (Storage/vMotion). This is to enable efficient traffic flow from the ESXi hosts' vmk0 interfaces to the proxies and the from the proxies to the remote proxies bypassing the firewalls.
    - For more information, see [VMware CDP Proxies](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120){: external}
 6. **I/O filter:**
@@ -90,14 +90,14 @@ Review the key features of this pattern:
 ## Design Scope
 {: #design-scope}
 
-The VMware Disaster Recovery solution using Veeam architecture covers [design considerations](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-design) and [architecture decisions](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-architecture-decisions-for-compute) for the following aspects and domains (as defined in the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro)):
+The VMware Disaster Recovery solution using Veeam architecture covers [design considerations](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-design) and [architecture decisions](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-decisions) for the following aspects and domains (as defined in the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro)):
 
 - **Compute:** Virtual Servers
 - **Storage:** Primary Storage, Backup Storage
-- **Networking:** Enterprise Connectivity, Segmentation and Isolation, Cloud Native Connectivity, Load Balancing, DNS
-- **Security:** Data Security, Identity and Access Management, Application Security, Infrastructure and Endpoint Security
-- **Resiliency:** High Availability, Backup and Restore
-- **Service Management:** Monitoring, Logging, Auditing, Alerting
+- **Networking:** Enterprise Connectivity, Segmentation and Isolation
+- **Security:** Data Security, Identity and Access Management
+- **Resiliency:** High Availability, Backup and Restore, Disaster recovery
+- **Service Management:** Monitoring, Logging, Auditing/tracking, Alerting, Event management
 
 ![Architecture framework for Veeam deployment](image/heat-map-veeam.svg){: caption="Figure 2 Architecture framework for Veeam deployment on VMware {{site.data.keyword.Bluemix_notm}} IBM Cloud" caption-side="bottom"}
 
