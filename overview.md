@@ -23,4 +23,4 @@ Check to ensure that the minimum distance between the protected and recovery sit
 
 The following image is the decision tree and is used to select Veeam as the disaster recovery product.
 
-![A diagram of a workflow description that's automatically generated](image/decision_tree-Veeam.drawio.svg){: caption="Figure 1. A diagram of a workflow description automatically generated" caption-side="bottom"}
+![A decision tree for disaster recovery for VMware workloads on IBM Cloud](image/decision_tree-Veeam.drawio.svg){: caption="Figure 1. Decision tree for disaster recovery for VMware workloads on IBM Cloud" caption-side="bottom"}
