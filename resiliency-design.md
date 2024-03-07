@@ -73,18 +73,18 @@ Review a few key considerations for resiliency:
 
 The following are steps that are typically needed to recover the protected VMware workloads from a disaster. These steps are only provided for general guidance as each customer’s workload and scenario are unique.
 
-### Scenario 1:  A limited number of VMs become unavailable and corrupted in the production site
+Scenario 1:  A limited number of VMs become unavailable and corrupted in the production site
 
 If a backup of the VMs covering the wanted recovery point is available in Veeam, restore the affected from backup in the protected site.
 
-## Scenario 2: The VMware environment in the protected site becomes unavailable
+Scenario 2: The VMware environment in the protected site becomes unavailable
 
 - Enable routing so that NSX overlay IP address ranges at the protected site are routed to the recovery site.
 - Using Veeam, perform a failover of the production VMs ideally by using predefined failover plan.
 
 When the protected VMware environment is available, reverse the network routing. Using Veeam, perform a failback if changes made to the recovered VMs during the failover need to be kept or undo the failover if the changes made to the recovered VMs do not need to be kept.
 
-## Scenario 3: VMware protected environment becomes unavailable and the Veeam Backup and Replication server in the protected site becomes unavailable
+Scenario 3: VMware protected environment becomes unavailable and the Veeam Backup and Replication server in the protected site becomes unavailable
 
 - Open the standby Veeam server in the recovery site or create one if it's not existing.
 - Power off the recovery site Veeam server if it is still running to avoid any potential for a split-brain situation(divided control plane for Veeam).
