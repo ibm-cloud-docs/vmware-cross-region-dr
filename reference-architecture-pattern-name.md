@@ -90,7 +90,7 @@ Review the key features of this pattern:
 ## Design Scope
 {: #design-scope}
 
-The VMware Disaster Recovery solution using Veeam architecture covers [design considerations](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-design) and [architecture decisions](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-decisions) for the following aspects and domains (as defined in the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro)):
+The VMware Disaster Recovery solution using Veeam architecture covers [design considerations](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-design) and [architecture decisions](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-decisions) for the following aspects and domains (as defined in the [Architecture Design Framework](/docs/architecture-framework?topic=architecture-framework-intro)):
 
 - **Compute:** Virtual Servers
 - **Storage:** Primary Storage, Backup Storage
@@ -101,7 +101,7 @@ The VMware Disaster Recovery solution using Veeam architecture covers [design co
 
 ![Architecture framework for Veeam deployment](image/heat-map-veeam.svg){: caption="Figure 2 Architecture framework for Veeam deployment on VMware {{site.data.keyword.Bluemix_notm}} IBM Cloud" caption-side="bottom"}
 
-The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more information, see [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro) for more details.
+The Architecture Design Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more information, see [Introduction to the Architecture Design Framework](/docs/architecture-framework?topic=architecture-framework-intro) for more details.
 
 ### Design considerations
 {: #arch-frame-design}
