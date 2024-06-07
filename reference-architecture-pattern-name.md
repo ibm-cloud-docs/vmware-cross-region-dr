@@ -6,11 +6,16 @@ lastupdated: "2024-02-24"
 subcollection: vmware-cross-region-dr
 
 keywords:
+
+content-type: reference-architecture
+
+use-case: cloud
+
+version: 1.0
 ---
 {{site.data.keyword.attribute-definition-list}}
 
 # Deploy IBM Cloud resiliency design for Veeam on VMware
-
 {: #deploy-veeam-arch}
 {: toc-content-type="reference-architecture"}
 {: toc-use-case="cloud"}
@@ -32,7 +37,6 @@ This pattern builds on Veeam best practice guidance:
 - Veeam VMware Backup and CDP proxies should be placed close to the data source as the data is not yet compressed or de-duplicated.
 
 ## Veeam Architecture details
-
 {: #architecture-diagram}
 
 The following image is the disaster recovery pattern architecture for VMware workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS).
@@ -89,7 +93,6 @@ Review the key features of this pattern:
    - Veeam ONE provides; monitoring, reporting, alerting, diagnostics with automated resolutions and infrastructure utilization and capacity planning.
 
 ## Design Scope
-
 {: #design-scope}
 
 The VMware Disaster Recovery solution using Veeam architecture covers [design considerations](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-design) and [architecture decisions](/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-decisions) for the following aspects and domains (as defined in the [Architecture Design Framework](/docs/architecture-framework?topic=architecture-framework-intro)):
@@ -106,7 +109,6 @@ The VMware Disaster Recovery solution using Veeam architecture covers [design co
 The Architecture Design Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more information, see [Introduction to the Architecture Design Framework](/docs/architecture-framework?topic=architecture-framework-intro) for more details.
 
 ### Design considerations
-
 {: #arch-frame-design}
 
 Consider the following when reviewing the pattern:
@@ -116,17 +118,16 @@ Consider the following when reviewing the pattern:
 - While the {{site.data.keyword.Bluemix_notm}} automation deploys the optional add-on Veeam service, it deploys it as an-all-in-one deployment scenario. While applicable for some use-cases it only provides the base for this disaster recovery pattern. Therefore, additional post deployment tasks are required, including; ordering additional private portable subnets, deploying virtual machines, deploying Veeam services onto ESXi hosts and virtual machines.
 - The configuration of the Veeam Backup and Replication server should be configured for a scheduled backup. This pattern recommends using an {{site.data.keyword.Bluemix_notm}} Object Storage bucket.
 - For more information on the Veeam components, review the following:
-  - [Requirements and limitations for VMware backup proxies](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy_requirements.html?ver=120).
-  - [Transport Modes](https://helpcenter.veeam.com/docs/backup/vsphere/transport_modes.html?ver=120).
-  - [VMware backup proxy](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120).
-  - [VMware CDP proxy](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120).
-  - [Object storage repositories](https://helpcenter.veeam.com/docs/backup/vsphere/object_storage_repository.html?ver=120).
+   - [Requirements and limitations for VMware backup proxies](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy_requirements.html? ver=120).
+   - [Transport Modes](https://helpcenter.veeam.com/docs/backup/vsphere/transport_modes.html?ver=120).
+   - [VMware backup proxy](https://helpcenter.veeam.com/docs/backup/vsphere/backup_proxy.html?ver=120).
+   - [VMware CDP proxy](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_proxy.html?ver=120).
+   - [Object storage repositories](https://helpcenter.veeam.com/docs/backup/vsphere/object_storage_repository.html?ver=120).
 - For CDP, an I/O filter needs to be installed on every VMware cluster where protected or recovered virtual machines will be hosted. For more information, see [Installing I/O Filter](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_io_filter_install.html?ver=120){: external}.
 - Veeam recommends having at least two Veeam VMware backup or CDP proxies on each site to provide some level of redundancy. Replication performance will increase when additional proxies are added as the replication jobs then get distributed across the proxies. This pattern only shows the minimum components needed for a functional replication between the 2 regions, the exact number and types of Veeam proxies needed depend on each customer’s environment and requirements.
 - While any Windows or Linux bare metal server, virtual server instance or virtual machine can be leveraged for a backup or CDP proxy, this pattern assumes a Linux virtual machine are used. If your requirements are different consider a different operating system or hardware environment.
 
 ## Requirements
-
 {: #requirements}
 
 Using the {{site.data.keyword.IBM_notm}} architecture framework, the following table describes the requirements for the disaster recovery pattern:
@@ -140,10 +141,9 @@ Using the {{site.data.keyword.IBM_notm}} architecture framework, the following t
 | Service Management                                                                                                                                                  | Monitor the usage and performance of the Veeam components. Enable logging and alerting to DevOps tooling                                                                                                                       |
 | Networking                                                                                                                                                          | Provide private connectivity between workloads across protected and recovery sites                                                                                                                                             |
 |                                                                                                                                                                     |                                                                                                                                                                                                                                |
-| {: caption="Table 1. Veeam disaster recovery pattern for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) requirements " caption-side="bottom"} |                                                                                                                                                                                                                                |
+{: caption="Table 1. Veeam disaster recovery pattern for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) requirements " caption-side="bottom"}
 
 ## Components
-
 {: #components}
 
 Using the {{site.data.keyword.IBM_notm}} architecture framework, the following table describes how the pattern's components deliver against the requirements for the disaster recovery pattern:
@@ -156,5 +156,4 @@ Using the {{site.data.keyword.IBM_notm}} architecture framework, the following t
 | Networking         | {{site.data.keyword.Bluemix_notm}} backbone                                       | The {{site.data.keyword.Bluemix_notm}} private network is used for replicate traffic between the proxies in the regions. Control traffic between the Veeam Backup and Replication server and the data-plane Veeam components also traverses this network                                                                                                         |
 | Resiliency         | Veeam replication and CDP                                                         | Veeam replication and CDP provide the resiliency of the VMware virtual machines to be protected and recovered. The resiliency of the Veeam data-plane components is accomplished by deploying multiple proxies. For the Veeam Backup and Replication server, vSphere HA and backups of the configuration database enables resiliency of the Veeam control-plane. |
 | Service Management | Veeam ONE                                                                         | Veeam ONE, part of the Veeam Availability Suite, provides visibility into Veeam-protected workloads and provides; monitoring, reporting, alerting, diagnostics with automated resolutions and infrastructure utilization and capacity planning.                                                                                                                  |
-
 {: caption="Table 2. Veeam Disaster Recovery solution for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) components" caption-side="bottom"}
