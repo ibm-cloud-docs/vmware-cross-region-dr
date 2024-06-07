@@ -14,18 +14,15 @@ toc:
     path: vmware-cross-region-dr
     description: Disaster Recovery on IBM Cloud with Veeam
     label: Deploy IBM Cloud resiliency design for Veeam on VMware
-
   entries:
   - navgroup:
       id: overview
       topics:
       - overview.md
-
   - navgroup:
       id: architecture
       topics:
       - reference-architecture-pattern-name.md
-
   - navgroup:
       id: plan
       topics:
@@ -42,7 +39,6 @@ toc:
             navtitle: Security
           - topic: resiliency-design.md
             navtitle: Resiliency
-
           - topic: service-management-design.md
             navtitle: Service Management
       - topicgroup:
@@ -60,18 +56,15 @@ toc:
             navtitle: Resiliency         
           - topic: service-management-architecture.md
             navtitle: Service Management 
-
   - navgroup:
       id: deploy
       topics:
       - topic-7.md
       - topic-8.md
-
   - navgroup:
       id: reference
       topics:
       - references.md
-
   - navgroup:
       id: help
       topics:
