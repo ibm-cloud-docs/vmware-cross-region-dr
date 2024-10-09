@@ -67,7 +67,7 @@ Use the following decision tree to decide which option to select.
 
 For this disaster recovery pattern, there was no requirement for physical isolation of the backup and the virtual machine option was selected. The recovery site was selected for the deployment so that the Veeam Backup and Replication server were available instantly for disaster recovery invocation.
 
-![A diagram of a server Description automatically generated](image/decision_tree-veeam_deployment.drawio.svg){: caption="Figure 1. Veeam deployment options on IBM Cloud" caption-side="bottom"}
+![A diagram of a server Description automatically generated](image/decision_tree-veeam_deployment.drawio.svg){: caption="Veeam deployment options on IBM Cloud" caption-side="bottom"}
 
 If this pattern was to include backup and physical isolation as a requirement, then consider the following:
 
