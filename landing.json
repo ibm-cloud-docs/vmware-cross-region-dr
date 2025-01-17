@@ -1,0 +1,45 @@
+{
+    "version": 2,
+    "title": "Deploy IBM Cloud resiliency design for Veeam on VMware",
+    "introduction": "This pattern describes deploying Veeam for disaster recovery for VMware workloads where the protected and recovery sites are both hosted in {{site.data.keyword.Bluemix_notm}}.",
+    "section_topics": {
+        "links": [
+        {
+          "title": "Solution overview",
+          "href": "docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-overview"
+        },
+        {
+          "title": "Compute",
+          "href": "/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-compute-design"
+        },
+        {
+          "title": "Storage",
+          "href": "/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-storage-design"
+        },
+        {
+          "title": "Networking",
+          "href": "/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-network-design"
+        },
+        {
+          "title": "Security",
+          "href": "/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-security-design"
+        },
+        {
+          "title": "Resiliency",
+          "href": "/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-resiliency-design"
+        },
+        {
+          "title": "Service management",
+          "href": "/docs/vmware-cross-region-dr?topic=vmware-cross-region-dr-service-design"
+        }
+      ]
+    },
+    "section_architectures": [
+      {
+        "title": "Deploy IBM Cloud resiliency design for Veeam on VMware",
+        "href": "/docs-draft/vmware-cross-region-dr?topic=vmware-cross-region-dr-deploy-veeam-arch",
+        "deployable": false
+      }
+    ]
+  }
+  
