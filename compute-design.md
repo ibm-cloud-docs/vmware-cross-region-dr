@@ -14,8 +14,8 @@ keywords:
 
 The following are compute design requirements and considerations for the VMware Disaster Recovery with Veeam pattern.
 
-## Requirement
-{: requirement-design}
+## Requirements
+{: #requirements-design}
 
 The requirements for the compute aspect for the Veeam for disaster recovery for VMware workloads pattern focuses on the following:
 

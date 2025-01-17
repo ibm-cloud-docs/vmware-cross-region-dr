@@ -10,12 +10,12 @@ keywords:
 {{site.data.keyword.attribute-definition-list}}
 
 # Network design
-
 {: #network-design}
 
 This pattern expands on the network aspect for the Veeam for disaster recovery for VMware workloads pattern.
 
 ## Requirements
+{: #network-requirements}
 
 The requirements for the network aspect for the Veeam for disaster recovery are as follows:
 
