@@ -41,7 +41,7 @@ This pattern builds on Veeam best practice guidance:
 
 The following image is the disaster recovery pattern architecture for VMware workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS).
 
-![Veeam Disaster Recovery Architecture](image/VCS_Veeam_cross_region.drawio.svg){: caption="Figure 1. Veeam Disaster Recovery solution for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) architecture" caption-side="bottom"}
+![Veeam Disaster Recovery Architecture](image/VCS_Veeam_cross_region.drawio.svg){: caption="Veeam Disaster Recovery solution for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) architecture" caption-side="bottom"}
 
 Review the key features of this pattern:
 
@@ -141,7 +141,7 @@ Using the {{site.data.keyword.IBM_notm}} architecture framework, the following t
 | Service Management                                                                                                                                                  | Monitor the usage and performance of the Veeam components. Enable logging and alerting to DevOps tooling                                                                                                                       |
 | Networking                                                                                                                                                          | Provide private connectivity between workloads across protected and recovery sites                                                                                                                                             |
 |                                                                                                                                                                     |                                                                                                                                                                                                                                |
-{: caption="Table 1. Veeam disaster recovery pattern for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) requirements " caption-side="bottom"}
+{: caption="Veeam disaster recovery pattern for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) requirements " caption-side="bottom"}
 
 ## Components
 {: #components}
@@ -156,4 +156,4 @@ Using the {{site.data.keyword.IBM_notm}} architecture framework, the following t
 | Networking         | {{site.data.keyword.Bluemix_notm}} backbone                                       | The {{site.data.keyword.Bluemix_notm}} private network is used for replicate traffic between the proxies in the regions. Control traffic between the Veeam Backup and Replication server and the data-plane Veeam components also traverses this network                                                                                                         |
 | Resiliency         | Veeam replication and CDP                                                         | Veeam replication and CDP provide the resiliency of the VMware virtual machines to be protected and recovered. The resiliency of the Veeam data-plane components is accomplished by deploying multiple proxies. For the Veeam Backup and Replication server, vSphere HA and backups of the configuration database enables resiliency of the Veeam control-plane. |
 | Service Management | Veeam ONE                                                                         | Veeam ONE, part of the Veeam Availability Suite, provides visibility into Veeam-protected workloads and provides; monitoring, reporting, alerting, diagnostics with automated resolutions and infrastructure utilization and capacity planning.                                                                                                                  |
-{: caption="Table 2. Veeam Disaster Recovery solution for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) components" caption-side="bottom"}
+{: caption="Veeam Disaster Recovery solution for VMware Workloads on {{site.data.keyword.Bluemix_notm}} Classic (VCS) components" caption-side="bottom"}

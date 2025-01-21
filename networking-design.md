@@ -10,12 +10,12 @@ keywords:
 {{site.data.keyword.attribute-definition-list}}
 
 # Network design
-
 {: #network-design}
 
 This pattern expands on the network aspect for the Veeam for disaster recovery for VMware workloads pattern.
 
 ## Requirements
+{: #network-requirements}
 
 The requirements for the network aspect for the Veeam for disaster recovery are as follows:
 
@@ -44,4 +44,4 @@ Keep in mind the following key areas when you design Veeam backup and replicatio
 | **DNS configuration:**                | **Name resolution:** Ensure proper DNS configuration for Veeam components and VMware infrastructure to enable seamless name resolution. This is essential for the identification and communication between components                                                                                                                                 |
 | **Time synchronization:**             | **NTP (Network Time Protocol):** Synchronize the clocks across Veeam components, VMware hosts, and other relevant systems by using NTP to verify accurate timestamps for logs and data consistency.                                                                                                                                                      |
 | **Redundancy and high availability:** | **Redundant network paths:** Configure redundant network paths to provide high availability and fault tolerance, verify that a failure in one path does not disrupt data transfer operations.                                                                                                                                                       |
-{: caption="Table 1. Networking design decisions" caption-side="bottom"}
+{: caption="Networking design decisions" caption-side="bottom"}

@@ -27,7 +27,7 @@ Veeam Backup and Replication support two types of replications, Veeam “standar
 
 Veeam replication is based on vSphere snapshots. During the first replication cycle, a full replica of the data of the protected VM is created on the disaster recovery (DR) site. The following replication cycles are incremental. Only changed blocks are copied. Veeam uses VMware vSphere Changed Block Tracking (CBT), introduced in vSphere 7.
 
-![Veeam replication architecture](image/Veeam-Replication-architecture.drawio.svg){: caption="Figure 1. Veeam standard replication architecture." caption-side="bottom"}
+![Veeam replication architecture](image/Veeam-Replication-architecture.drawio.svg){: caption="Veeam standard replication architecture." caption-side="bottom"}
 
 
 Veeam replication is recommended to protect VMs with a recovery point objective (RPO) in hours. If a more aggressive RPO is needed, Veeam Continuous Data Protection must be used.
@@ -39,7 +39,7 @@ Veeam Continuous Data Protection (CDP) constantly replicates the I/O operations 
 
 CDP does not create or use snapshots and allows a lower RPO (near zero) than standard snapshots-based replication. {: note}
 
-The I/O operations data is stored in the target data store and associated to short-term restore points, allowing recovering to seconds or minutes before a disaster. Short-term restore points are kept for a maximum of 24 hours. To recover VMs to an older state, extra “long term” restore points can be defined to allow recovering a VM state from hours or days ago. For more information, see [Continuous Data Protection (CDP)](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_replication.html?ver=120%3e){: external}.
+The I/O operations data is stored in the target data store and associated to short-term restore points, allowing recovering to seconds or minutes before a disaster. Short-term restore points are kept for a maximum of 24 hours. To recover VMs to an older state, extra “long term” restore points can be defined to allow recovering a VM state from hours or days ago. For more information, see [Continuous Data Protection (CDP)](https://helpcenter.veeam.com/docs/backup/vsphere/cdp_replication.html?ver=120){: external}.
 
 ![Veeam CDP replication architecture](image/Veeam-CDP-Architecture.svg){: caption="Figure 2.Veeam CDP replication architecture." caption-side="bottom"}
 

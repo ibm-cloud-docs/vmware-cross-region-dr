@@ -10,7 +10,6 @@ keywords:
 {{site.data.keyword.attribute-definition-list}}
 
 # Overview
-
 {: #overview}
 
 This pattern describes Veeam for disaster recovery for VMware workloads where the protected and recovery sites are both hosted in {{site.data.keyword.Bluemix_notm}}. While this pattern describes a Veeam deployment that uses the add-on additional services available only with the {{site.data.keyword.Bluemix_notm}} vCenter Server platform, the pattern can be extrapolated for use with the VMware Cloud Foundation (VCF) in IBM Virtual Private Cloud (VPC) platform. The deployment of the Veeam server must be deployed manually by using {{site.data.keyword.Bluemix_notm}} licenses that are ordered through the {{site.data.keyword.Bluemix_notm}} for VMware Solutions console.
@@ -23,4 +22,4 @@ Check to ensure that the minimum distance between the protected and recovery sit
 
 The following image is the decision tree and is used to select Veeam as the disaster recovery product.
 
-![A decision tree for disaster recovery for VMware workloads on IBM Cloud](image/decision_tree-Veeam.drawio.svg){: caption="Figure 1. Decision tree for disaster recovery for VMware workloads on IBM Cloud" caption-side="bottom"}
+![A decision tree for disaster recovery for VMware workloads on IBM Cloud](image/decision_tree-Veeam.drawio.svg){: caption="Decision tree for disaster recovery for VMware workloads on IBM Cloud" caption-side="bottom"}
