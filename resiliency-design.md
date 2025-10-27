@@ -65,7 +65,7 @@ Review a few key considerations for resiliency:
    - Recovery site: 1 x Veeam backup and CDP proxy running on the Veeam Back and Replication server and 1 x Veeam backup and CDP proxy on a virtual machine
 - Ideally, proxies per ESXi host should be deployed.
 - In the event that one of the backup and CDP proxies becoming unavailable, replication jobs would be distributed to the remaining proxy.
-- To be able to quickly restore the replication functionalities in the event of the loss of the Veeam Backup and Replication server, the recommendation is to regularly back up the Veeam configuration to a {{site.data.keyword.cos_full_notm}} bucket.
+- To be able to quickly restore the replication functionalities in the event of the loss of the Veeam Backup and Replication server, the recommendation is to regularly back up the Veeam configuration to an {{site.data.keyword.cos_full_notm}} bucket.
    - If you decide to deploy the Veeam Backup and Replication server to the protected site, deploy a Veeam Backup and Replication server in the recovery site but not configured. That will act as a “standby” Veeam all-in-one. When the loss of the Veeam Backup and Replication server that is located in the protected site occurs, recovery would consist of importing the backed up Veeam configuration from the {{site.data.keyword.cos_full_notm}} bucket to the “standby” Veeam server in the recovery site. The “standby” Veeam server does not have to be identical to the server in the protected site.
 
 ## Recovery Scenarios
