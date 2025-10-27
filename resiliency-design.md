@@ -57,16 +57,16 @@ Review a few key considerations for resiliency:
 - The workload cluster in the recovery region requires sufficient free capacity to host the protected workloads.
 - In normal operations, workload virtual machines can run in the recovery region if required. However, there needs to be enough initial capacity in the recovery region to run the recovered workload on virtual machines upon disaster recovery invocation. These workloads might be test and development workloads that are sacrificial upon invocation or test.
 - Recovery Point Objective (RPO) and Recovery Time Objective (RTO) depend on many variables. Therefore, the vCenter Server dual-region design provides no standard Service Level Agreement (SLA) for RPO or RTO. However, review the following information about RPO and RTO:
-  - The VMware vSphere clusters in the recovery region are provisioned and are available to run workloads when these workload VMs are started after disaster recovery invocation.
-  - The core management components in the recovery region (vCenter Server and the NSX-T™ Manager cluster) are running which causes no infrastructure deployment wait time.
-  - The recovery infrastructure is being monitored through the management toolset, ideally VMware Aria® Operations™, so that the recovery infrastructure resources are healthy, and ready to be used.
+   - The VMware vSphere clusters in the recovery region are provisioned and are available to run workloads when these workload VMs are started after disaster recovery invocation.
+   - The core management components in the recovery region (vCenter Server and the NSX-T™ Manager cluster) are running which causes no infrastructure deployment wait time.
+   - The recovery infrastructure is being monitored through the management toolset, ideally VMware Aria® Operations™, so that the recovery infrastructure resources are healthy, and ready to be used.
 - To provide resiliency for the replication tasks, it is recommended to use at least 2 Veeam backup and CDP proxies in each site (4 Veeam backup and CDP proxies in total). In the pattern this translates into the following proxies being deployed:
-  - Protected site: 2 x Veeam backup and CDP proxy running on virtual machines.
-  - Recovery site: 1 x Veeam backup and CDP proxy running on the Veeam Back and Replication server and 1 x Veeam backup and CDP proxy on a virtual machine
+   - Protected site: 2 x Veeam backup and CDP proxy running on virtual machines.
+   - Recovery site: 1 x Veeam backup and CDP proxy running on the Veeam Back and Replication server and 1 x Veeam backup and CDP proxy on a virtual machine
 - Ideally, proxies per ESXi host should be deployed.
 - In the event that one of the backup and CDP proxies becoming unavailable, replication jobs would be distributed to the remaining proxy.
 - To be able to quickly restore the replication functionalities in the event of the loss of the Veeam Backup and Replication server, the recommendation is to regularly back up the Veeam configuration to a {{site.data.keyword.cos_full_notm}} bucket.
-  - If you decide to deploy the Veeam Backup and Replication server to the protected site, deploy a Veeam Backup and Replication server in the recovery site but not configured. That will act as a “standby” Veeam all-in-one. When the loss of the Veeam Backup and Replication server that is located in the protected site occurs, recovery would consist of importing the backed up Veeam configuration from the {{site.data.keyword.cos_full_notm}} bucket to the “standby” Veeam server in the recovery site. The “standby” Veeam server does not have to be identical to the server in the protected site.
+   - If you decide to deploy the Veeam Backup and Replication server to the protected site, deploy a Veeam Backup and Replication server in the recovery site but not configured. That will act as a “standby” Veeam all-in-one. When the loss of the Veeam Backup and Replication server that is located in the protected site occurs, recovery would consist of importing the backed up Veeam configuration from the {{site.data.keyword.cos_full_notm}} bucket to the “standby” Veeam server in the recovery site. The “standby” Veeam server does not have to be identical to the server in the protected site.
 
 ## Recovery Scenarios
 {: #recovery-scenarios}
@@ -104,8 +104,8 @@ In addition, consider verifying that the required firewall ports are open betwee
 While backup is not part of this disaster recovery pattern, consider the following when combining backup and disaster recovery:
 
 - The industry best practice for backup resiliency is to follow the 3:2:1 rule:
-  - 3: At least three copies of your data (original production data and two backups).
-  - 2: At least two different types of media to store the copies of your data, for example, local disk and cloud.
-  - 1: At least one backup off-site, for example, in the cloud.
+   - 3: At least three copies of your data (original production data and two backups).
+   - 2: At least two different types of media to store the copies of your data, for example, local disk and cloud.
+   - 1: At least one backup off-site, for example, in the cloud.
 - It is recommended to setup an additional backup target to maintain the capacity to restore the VMs if a complete loss of the all-in-one Veeam bare metal server. The recommended way to achieve this in the present pattern is to set up a Veeam scale-out backup repository by using {{site.data.keyword.cos_full_notm}} and use the Veeam backup copy functionality. For more information, see [Backup Copy](https://helpcenter.veeam.com/docs/backup/vsphere/backup_copy.html?ver=120).{: external}
 - Backup the protected virtual machines data to {{site.data.keyword.cos_full_notm}} and back up the configuration of the Veeam solution. For more information, see [Creating Configuration Backups](https://helpcenter.veeam.com/docs/backup/vsphere/export_vbr_config.html?ver=120){: external}
