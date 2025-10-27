@@ -12,6 +12,9 @@ keywords:
 # Overview
 {: #overview}
 
+**End of Marketing**: As of 31 October 2025, new deployments of VMware Solutions offerings are no longer available for new customers. Existing customers can still use and expand their active VMware® workloads on {{site.data.keyword.cloud}}. For more information, see [End of Marketing for VMware on {{site.data.keyword.cloud_notm}}](/docs/vmwaresolutions?topic=vmwaresolutions-eos-vms).
+{: note}
+
 This pattern describes Veeam for disaster recovery for VMware workloads where the protected and recovery sites are both hosted in {{site.data.keyword.Bluemix_notm}}. While this pattern describes a Veeam deployment that uses the add-on additional services available only with the {{site.data.keyword.Bluemix_notm}} vCenter Server platform, the pattern can be extrapolated for use with the VMware Cloud Foundation (VCF) in IBM Virtual Private Cloud (VPC) platform. The deployment of the Veeam server must be deployed manually by using {{site.data.keyword.Bluemix_notm}} licenses that are ordered through the {{site.data.keyword.Bluemix_notm}} for VMware Solutions console.
 
 This pattern does not cover backup design and deployment pattern. {: note}
