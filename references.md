@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-02-27"
+  years: 2023, 2025
+lastupdated: "2025-10-27"
 
-subcollection: 
+subcollection:
 
 keywords:
 
@@ -22,9 +22,8 @@ Review the following references to guide you through the IBM Cloud resiliency de
 -   [Managing Veeam stand-alone licenses](/docs/vmwaresolutions?topic=vmwaresolutions-veeam_managing_licenses)
 -   [Ordering and configuring IBM Cloud Object Storage with Veeam](/docs/vmwaresolutions?topic=vmwaresolutions-icos_ordering)
 -   [VMware Solutions FAQ](/docs/vmwaresolutions?topic=vmwaresolutions-faq-vmwaresolutions)
--   [Veeam Backup and Replication](https://www.ibm.com/cloud/architecture/architectures/virtualization_backup_veeam)
--   [Veeam Backup and Replication FAQ](https://www.veeam.com/availability-suite-faq.html)
--   [Veeam Technical Documentation](https://www.veeam.com/documentation-guides-datasheets.html)
+-   [Veeam Backup and Replication FAQ](https://www.veeam.com/products/veeam-data-platform/backup-recovery.html#faq){: external}
+-   [Veeam Technical Documentation](https://helpcenter.veeam.com/){: external}
 
 
 

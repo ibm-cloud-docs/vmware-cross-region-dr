@@ -20,11 +20,11 @@ This pattern expands on the network aspect for the Veeam for disaster recovery f
 The requirements for the network aspect for the Veeam for disaster recovery are as follows:
 
 - The Veeam Backup and Replication server must have network connectivity to:
-  - All the Veeam VMware Backup and Continuous Data Protection (CDP) proxies.
-  - All the ESXi hosts where VMs and replicas are running.
-  - The vCenter appliances in the protected and recovery sites.
-  - Optional: Internet connectivity for license renewals, software updates, and certificate chain validation for object storage.
-  - Optional: Connectivity to {{site.data.keyword.cos_full_notm}}.
+   - All the Veeam VMware Backup and Continuous Data Protection (CDP) proxies.
+   - All the ESXi hosts where VMs and replicas are running.
+   - The vCenter appliances in the protected and recovery sites.
+   - Optional: Internet connectivity for license renewals, software updates, and certificate chain validation for object storage.
+   - Optional: Connectivity to {{site.data.keyword.cos_full_notm}}.
 - The Veeam VMware Backup and CDP proxies must communicate with their peers at the remote sites.
 - The Veeam VMware Backup and CDP proxies must communicate with the ESXi hosts at their site.
 

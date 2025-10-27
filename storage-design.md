@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-02-29"
+  years: 2023, 2025
+lastupdated: "2025-10-27"
 
 subcollection: vmware-cross-region-dr
 
@@ -25,7 +25,7 @@ For replication, particularly if vSAN is being used, make sure to properly size 
 ## Considerations for backup repositories
 {: #backup-considerations}
 
-The [Veeam Backup Capacity Calculator](https://calculator.veeam.com/vbr/){: external} can calculate the storage requirements that are needed for defined backup policies.
+The [Veeam Backup Capacity Calculator](https://www.veeam.com/calculators/simple/vbr/machines/){: external} can calculate the storage requirements that are needed for defined backup policies.
 
 The bare metal all-in-one Veeam deployment option on {{site.data.keyword.Bluemix_notm}} comes with the following directly attached storage:
 
